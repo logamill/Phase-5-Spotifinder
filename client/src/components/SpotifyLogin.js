@@ -3,7 +3,7 @@ import styled from "styled-components";
 // import "../styles/spotify_login.scss"
 import "../styles/signup.scss"
 import { useHistory, Link } from "react-router-dom";
-import logo from '../spotifinderlogo.png';
+import logo from '../logo.png';
 
 export default function SpotifyLogin({ user }) {
   const history = useHistory()
