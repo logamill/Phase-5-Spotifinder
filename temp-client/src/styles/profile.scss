@@ -1,0 +1,150 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
+@import "./../styles/variables.scss";
+
+body {
+  background: #ECF0F1;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: $light;
+  background-color: black;
+}
+
+.profile {
+  max-width: 100vw;
+}
+
+.wrap {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-weight: 300;
+  color: $light;
+}
+
+h3 {
+  font-size: 10rem;
+  color: $dark;
+  margin-right: 10%;
+  margin-bottom: 5rem;
+  text-align: right;
+  // text-decoration: line-through
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.profile-container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    h2 {
+        font-size: 15rem;
+    }
+    span {
+      color: $green;
+    }
+}
+
+.album-1-container {
+    background-repeat: repeat-x;    
+    height: 10vh;  
+    width: 50;  
+}
+.focus-image {
+    display: flex;
+    flex-direction: column;
+
+    img {
+        // border-radius: 360px;
+        width: 300px;
+        height: 300px;
+        // animation: animate 8s linear infinite;
+    }
+}
+
+.image-container {
+  padding: 20px;
+  align-items: center;
+
+  img {
+      border-radius: 10rem;
+  }
+}
+
+.analytics-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10rem;
+
+  h1 {
+    margin-bottom: 1rem;
+    font-size: 5rem;
+    font-weight: 600;
+  }
+  h2 {
+    font-style: italic;
+    font-weight: 300;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  p {
+    font-style: italic;
+    font-size: larger;
+    margin-left: 1rem;
+    width: 80%;
+  }
+}
+
+.bars {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  align-content: center;
+  
+  > div {
+    margin: 4rem;
+    width: 40%;
+    display: inline;
+
+  }
+}
+
+.artist-header {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+
+  h2 {
+      font-size: 15rem;
+  }
+  h3 {
+    font-size: 10rem;
+    text-align: right;
+    margin-right: 4rem;
+    color: $dark;
+    margin-left: 30%;
+    // text-decoration: line-through
+  }
+}
+
+
+.artist-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2rem;
+  justify-items: center;
+
+}
+.artist-div {
+  width: 30%;
+  margin-left: 20%;
+}

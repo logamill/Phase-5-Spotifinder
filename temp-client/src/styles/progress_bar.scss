@@ -1,0 +1,55 @@
+@import '../styles/variables.scss';
+
+.progress {
+	background-color: $dark;
+	border-radius: 20px;
+	position: relative;
+	margin: 15px 0;
+	height: 2rem;
+	width: 40rem;
+}
+
+.progress-bar {
+	background: linear-gradient(to left, $green, rgb(10, 86, 10));
+	// box-shadow: 0 3px 3px -5px #F2709C, 0 2px 5px #F2709C;
+	border-radius: 20px;
+	color: #fff;
+	display: flex;
+    font-weight: 400;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 0;
+	opacity: 0;
+	transition: 1s ease 0.3s;
+}
+
+.progress-high {
+	background: linear-gradient(to left, #F2709C, #FF9472);
+	box-shadow: 0 3px 3px -5px #F2709C, 0 2px 5px #F2709C;
+	border-radius: 20px;
+	color: #fff;
+	display: flex;
+    font-weight: 400;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 0;
+	opacity: 0;
+	transition: 1s ease 0.3s;
+}
+
+.progress-low {
+	background: linear-gradient(to left, $green, );
+	box-shadow: 0 3px 3px -5px $green, 0 2px 5px $green;
+	border-radius: 20px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+    font-weight: 400;
+	justify-content: center;
+	height: 100%;
+	width: 0;
+	opacity: 0;
+	transition: 1s ease 0.3s;
+}

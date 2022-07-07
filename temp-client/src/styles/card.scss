@@ -1,0 +1,57 @@
+@import "./variables.scss";
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 10%;
+    padding-bottom: 1rem;
+    align-items: center;
+
+}
+.card {
+    display: flex;
+    align-items: center;
+    color: black;
+    background-size: cover;
+    max-width: 35ch;
+}
+
+.card-index {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 1rem;
+    justify-content: center;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: grey;
+}
+
+.card-image {
+    height: 5rem;
+    width: 5rem;
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card-title {
+    padding-left: 2rem;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.card-body {
+    padding-left: 4rem;
+    font-style: italic;
+
+}
+.card-content {
+    padding: 1.5rem;
+    background: hsl(0 0% 0% / 1)
+}

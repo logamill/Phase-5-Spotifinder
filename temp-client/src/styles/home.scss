@@ -1,0 +1,13 @@
+@import './variables.scss';
+
+#spotify-gif {
+    height: 30rem;
+    width: 55rem;
+    opacity: 100%;
+    // transition: opacity 100ms, 0%;
+    animation-delay: 5s;
+}
+
+h5 {
+    font-size: 3rem;
+}

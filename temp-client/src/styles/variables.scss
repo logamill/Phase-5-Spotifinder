@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&&display=swap');
+
+$Montserrat: "Montserrat", sans-serif;
+
+// colors 
+$dark: rgb(26, 23, 23);
+$light: rgba(255, 255, 255, 0.845);
+$green: #1db954;
+$orange: hsl(5, 72%, 61%);
+$bg: rgb(50, 50, 50);
+
+// spacing 
+$spacing-md: 16px;
+$spacing-lg: 32px;
+
+// border radius
+$borderRadius: 12px;
+
+// header height
+$headerHeight: 100px;
+
+@mixin breakpoint($point) {
+    @if $point == md {
+        //768
+        @media (min-width: 48em) {
+            @content;
+        }
+    }
+}

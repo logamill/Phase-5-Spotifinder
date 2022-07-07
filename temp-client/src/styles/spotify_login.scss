@@ -1,0 +1,49 @@
+@import "./variables.scss";
+
+.link-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    span {
+        padding-top: 5vh;
+        font-style: $Montserrat;
+        font-size: larger;
+    }
+}
+.auth-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+
+    a {
+        margin-top: 5rem;
+      padding: 1rem 4rem;
+      border-radius: 5rem;
+      background-color: #1db954;
+      color: black;
+      border: none;
+      text-decoration: none;
+      font-size: 1.4rem;
+      font-weight: 400;
+      cursor: pointer;
+      animation: animate 2s linear infinite;
+    }
+
+    @keyframes animate {
+        0% {
+            box-shadow: 0 0 0 0 rgba($green, .6);
+        }
+        40% {
+            box-shadow: 0 0 0 4px rgba($green, .6);
+        }
+        80% {
+            box-shadow: 0 0 0 2px rgba($green, .6);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba($green, .6);
+        }
+    }
+}

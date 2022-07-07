@@ -1,0 +1,72 @@
+@import '../styles/variables.scss';
+
+.match {
+	background-color: $dark;
+	border-radius: 20px;
+	position: relative;
+	margin: 15px 0;
+	height: 35rem;
+	width: 3rem;
+}
+
+.match-bar {
+	background: linear-gradient(to top, $green, rgb(42, 208, 42));
+	box-shadow: 0 3px 3px -5px #f2f270, 0 2px 5px #21671c;
+	border-radius: 20px;
+	color: #fff;
+	display: flex;
+    font-weight: 400;
+    transform: rotate(180deg);
+	align-items: flex-start;
+	justify-content: center;
+	height: 0%;
+	width: 100%;
+	opacity: 0;
+	transition: height 1s ease 0.3s;
+}
+
+.match-high {
+	background: linear-gradient(to left, #F2709C, #FF9472);
+	box-shadow: 0 3px 3px -5px #F2709C, 0 2px 5px #F2709C;
+	border-radius: 20px;
+	color: #fff;
+	display: flex;
+    font-weight: 400;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 0;
+	opacity: 0;
+	transition: 1s ease 0.3s;
+}
+
+.match-low {
+	background: linear-gradient(to left, $green, );
+	box-shadow: 0 3px 3px -5px $green, 0 2px 5px $green;
+	border-radius: 20px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+    font-weight: 400;
+	justify-content: center;
+	height: 100%;
+	width: 0;
+	opacity: 0;
+	transition: 1s ease 0.3s;
+}
+
+.match-info {
+    display: flex;
+    transform: rotate(180deg);
+    font-size: larger;
+}
+
+.match-percent {
+    transform: rotate(180deg);
+    display: flex;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-top: 10px;
+    flex-direction: column;
+    align-items: center;
+}

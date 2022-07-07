@@ -1,0 +1,21 @@
+@import '../styles//variables.scss';
+
+.browse-header {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    h2 {
+        font-size: 15rem;
+    }
+    h3 {
+      font-size: 10rem;
+      color: $dark;
+      margin-left: 30%;
+      // text-decoration: line-through
+
+      span {
+        color: $orange;
+      }
+    }
+}

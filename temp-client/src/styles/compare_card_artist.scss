@@ -1,0 +1,63 @@
+@import "./variables.scss";
+
+.comp-artist-container {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 1rem;
+    align-items: stretch;
+    align-content: center;
+    flex-wrap: nowrap;
+    margin-left: 6rem;
+}
+.comp-artist {
+    display: flex;
+    align-items: center;
+    color: black;
+    background-size: cover;
+    max-width: 35ch;
+}
+
+.comp-artist-index {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 2rem;
+    justify-content: center;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 600;
+    color: grey;
+}
+
+.comp-artist-image {
+    height: 5rem;
+    width: 5rem;
+}
+
+.comp-artist-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 25rem
+}
+
+.comp-artist-title {
+    padding-left: 3rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.comp-artist-body {
+    padding-left: 4rem;
+    display: flex;
+    font-style: italic;
+    font-size: 2rem;
+    max-height: 5rem;
+    text-overflow: ellipsis;
+    max-lines: 4;
+
+}
+.comp-artist-content {
+    padding: 1.5rem;
+    background: hsl(0 0% 0% / 1)
+}
