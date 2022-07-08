@@ -6,10 +6,10 @@
     flex-direction: column;
 
     h2 {
-     font-size: 15rem;
+     font-size: 8rem;
     }
     h3 {
-      font-size: 10rem;
+      font-size: 8rem;
       color: $dark;
       margin-left: 30%;
       // text-decoration: line-through
@@ -67,6 +67,7 @@
 
     img {
         border-radius: 300px;
+        width: 13%;
         margin: 1rem
     }
 
@@ -132,4 +133,9 @@
         padding-top: 5rem;
         font-size: 13rem;
     }
+  }
+  .fail-span {
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 500;
   }

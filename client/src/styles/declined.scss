@@ -1,0 +1,22 @@
+@import './variables.scss';
+
+.declined-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    h3 {
+        font-size: 3rem;
+        padding: 5rem;
+        color: $light;
+        text-align: center;
+    }
+    h5 {
+        font-size: 2rem;
+        width: 50rem;
+        text-align: center;
+    }
+    img {
+        margin-top: 5rem;
+    }
+}

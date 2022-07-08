@@ -1,10 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
 import '../styles/profile.scss'
+import { useHistory } from 'react-router-dom'
 import ProgressBar from './ProgressBar';
 import CompareCardArtist from '../components/CompareCardArtist'
 
 function Profile({ user }) {
+    const history = useHistory(); 
+
+    if(user.tracks.length < 20 || user.artists.length < 20) {
+        history.push('/declined')}
+    useEffect(() => {
+        console.log(user)
+        if(user.tracks.length < 20 || user.artists.length < 20) {
+            history.push('/declined')}
+    },[])
 
     const artistsToDisplay = user.artists.map((el, i) => {
         return (
@@ -17,6 +27,7 @@ function Profile({ user }) {
         )
         });
     return (
+        
         <div className='profile'>
             <div>
             <div className='profile-container'>

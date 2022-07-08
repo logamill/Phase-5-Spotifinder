@@ -10,6 +10,7 @@ import LinkAccount from './LinkAccount';
 import Profile from './Profile';
 import Compare from './Compare';
 import ScrollToTop from './ScrollToTop';
+import Declined from './Declined';
 import Browse from './Browse';
 
 function App() {
@@ -74,10 +75,16 @@ function App() {
         <Browse user={user} />
       </Route>
       <Route exact path="/auth/spotify/callback">
-        <LinkAccount user={user} setUser={setUser}/>
+        <Profile user={user} tracks={tracks} setTracks={setTracks} />
       </Route>
       <Route exact path="/signup">
         <Signup onLogin={onLogin} />
+      </Route>
+      <Route exact path="/auth/spotify">
+        <Profile user={user} tracks={tracks} setTracks={setTracks} />
+      </Route>
+      <Route exact path="/declined">
+        <Declined user={user} />
       </Route>
       <Route exact path="/">
         <Home user={user}/>

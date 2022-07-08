@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import '../styles/signup.scss'
 
 export default function Login({ onLogin }) {
   const history = useHistory();
@@ -14,8 +15,7 @@ export default function Login({ onLogin }) {
     });
     if (response.ok) {
       let user = await response.json();
-      if(user.spotify_id === null) {
-        console.log('push spot')
+      if(!user.spotify_id) {
         history.push('/spotify/login')}
       history.push(`/profile`);
       onLogin(user);

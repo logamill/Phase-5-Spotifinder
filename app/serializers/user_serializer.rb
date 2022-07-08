@@ -3,6 +3,5 @@ class UserSerializer < ActiveModel::Serializer
   :spotify_id, :credentials, :valence, :instrumentalness, 
   :danceability, :acousticness, :liveness, :popularity, 
   :energy, :speechiness, :tracks, :artists, :taste, :url
-  
 end
  

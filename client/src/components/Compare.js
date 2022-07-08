@@ -43,12 +43,13 @@ function Compare ( props ) {
         <div className='compare-container'>
             <div className='self-compare'>
                 {
+                    compare.tracks.length > 0 ? 
                     compare.tracks.slice(0,5).map((el, i) => {
                         return (
                             <CompareCard key={i} index={i} track={el} />
                         )
                         })
-}
+                : <span className='fail-span'>{compare.name} doesn't have enough track data</span>}
             <h6>// {compare.name}</h6>
             </div>
             <div className='compare-bar'>
@@ -73,12 +74,12 @@ function Compare ( props ) {
         <h3 className='compare-sub-header'> // artists</h3>
         <div className='compare-container'>
         <div className='self-compare'>
-                {
+                { compare.artists.length > 0 ?
                     compare.artists.slice(0,5).map((el, i) => {
                         return (
                             <CompareCardArtist key={i} index={i} artist={el} />
                         )
-                        })
+                        }) : <span className='fail-span'>{compare.name} doesn't have enough artist data</span>
 }
             </div>
             <div className='user-compare'>{

@@ -97,6 +97,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:name, :username, :password, :email, :image, :spotify_id, :url, :credentials, :valence, :danceability, :acousticness, :liveness, :energy, :popularity, :taste)
+        params.permit(:name, :username, :password, :confirmed_password, :email, :image, :spotify_id, :url, :credentials, :valence, :danceability, :acousticness, :liveness, :energy, :popularity, :taste)
     end
 end
