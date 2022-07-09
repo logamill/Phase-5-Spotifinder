@@ -6,7 +6,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import SpotifyLogin from './SpotifyLogin';
 import Signup from './SignUp';
 import Login from './Login';
-import LinkAccount from './LinkAccount';
 import Profile from './Profile';
 import Compare from './Compare';
 import ScrollToTop from './ScrollToTop';
@@ -27,17 +26,6 @@ function App() {
     });
   }, []);
 
-  // useEffect(() => {
-  //   fetch("/me")
-  //   .then(res => res.json())
-  //   .then((data) => {
-  //     console.log(data);
-  //     setUser(data)
-  //       })
-  //   .catch(err => console.log(err));
-  // }, []);
-
-  console.log(user)
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -49,6 +37,8 @@ function App() {
     setUser(user);
     setTracks(user.tracks)
   };
+
+  console.log(user)
 
   return (
     <>
@@ -63,7 +53,7 @@ function App() {
         <Login onLogin={onLogin}/>
       </Route>
       <Route exact path="/spotify/login">
-        <SpotifyLogin user={user}/>
+        <SpotifyLogin user={user} setUser={setUser}/>
       </Route>
       <Route exact path="/profile">
         <Profile user={user} tracks={tracks} setTracks={setTracks} />

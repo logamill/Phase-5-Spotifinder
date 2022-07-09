@@ -19,7 +19,7 @@ export default function Signup({ onLogin }) {
 
   return (
     <div className="login">
-      <h2 className="modal-title">Welcome.</h2>
+      <h2 className="modal-title"></h2>
       <form
         className="form sign-up-form"
         id="signup-form"

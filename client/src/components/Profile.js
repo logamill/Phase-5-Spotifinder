@@ -8,14 +8,12 @@ import CompareCardArtist from '../components/CompareCardArtist'
 function Profile({ user }) {
     const history = useHistory(); 
 
-    if(user.tracks.length < 20 || user.artists.length < 20) {
+    if (!user.spotify_id){
+        history.push('/spotify/login')
+    } else if (user.spotify_id && user.tracks.length < 20 || user.artists.length < 20) {
         history.push('/declined')}
-    useEffect(() => {
-        console.log(user)
-        if(user.tracks.length < 20 || user.artists.length < 20) {
-            history.push('/declined')}
-    },[])
 
+        
     const artistsToDisplay = user.artists.map((el, i) => {
         return (
                 <CompareCardArtist key={i} index={i} artist={el} />

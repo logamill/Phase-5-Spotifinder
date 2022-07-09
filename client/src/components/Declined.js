@@ -9,9 +9,9 @@ function Declined({ user }) {
 
         <div className='declined-container'>
             <h3>
-                Unfortunately you do not have enough Spotify data at the moment to use Spotifinder
+                Unfortunately you do not have enough Spotify® data at the moment to use Spotifinder™ :(
             </h3>
-            <h5>Continue your Spotify journey below and get back to us!</h5>         
+            <h5>You can retry to link your account or you can continue your Spotify® journey below and get back to us!</h5>         
             <a href='spotify.com' id='spot-logo'>
                 <img src={spotify} id='spot-logo'></img>
             </a>
