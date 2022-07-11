@@ -75,7 +75,7 @@ class UsersController < ApplicationController
 
             med_tracks.each do |t|
                 j = t.audio_features
-                Track.create!(
+                MedTrack.create!(
                     name: t.name,
                     spotify_id: t.id,
                     artist: t.artists.first.name,
@@ -97,7 +97,7 @@ class UsersController < ApplicationController
 
             short_tracks.each do |t|
                 j = t.audio_features
-                Track.create!(
+                ShortTrack.create!(
                     name: t.name,
                     spotify_id: t.id,
                     artist: t.artists.first.name,
@@ -127,7 +127,7 @@ class UsersController < ApplicationController
             end
 
             med_artists.each do |t|
-                Artist.create!(
+                MedArtist.create!(
                     name: t.name,
                     genre: t.genres,
                     image: t.images[0]['url'],
@@ -136,7 +136,7 @@ class UsersController < ApplicationController
             end
 
             short_artists.each do |t|
-                Artist.create!(
+                ShortArtist.create!(
                     name: t.name,
                     genre: t.genres,
                     image: t.images[0]['url'],

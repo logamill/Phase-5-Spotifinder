@@ -1,0 +1,2 @@
+class ShortArtist < ApplicationRecord
+end

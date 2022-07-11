@@ -18,7 +18,7 @@ export default function SpotifyLogin({ user }) {
       // getSpotifyData();
       setLoadingData(false);
       window.location.reload();
-    }, 10000);
+    }, 13000);
     };
 
   return (

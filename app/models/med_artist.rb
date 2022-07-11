@@ -1,0 +1,2 @@
+class MedArtist < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class MedTrack < ApplicationRecord
+end

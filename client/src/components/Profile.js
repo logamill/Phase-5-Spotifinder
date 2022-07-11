@@ -7,6 +7,14 @@ import CompareCardArtist from '../components/CompareCardArtist'
 
 function Profile({ user }) {
     const history = useHistory(); 
+    const [tracks, setTracks] = useState(user.tracks)
+    const [artists, setArtists] = useState(user.artists)
+    const [acousticness, setAcousticness] = useState(user.acousticness)
+    const [energy, setEnergy] = useState(user.energy)
+    const [valence, setValence] = useState(user.valence)
+    const [danceability, setDanceability] = useState(user.danceability)
+    const [popularity, setPopularity] = useState(user.popularity)
+    const [liveness, setLiveness] = useState(user.liveness)
 
     if (!user.spotify_id){
         history.push('/spotify/login')
@@ -14,12 +22,61 @@ function Profile({ user }) {
         history.push('/declined')}
 
 
-    const artistsToDisplay = user.artists.map((el, i) => {
+    // functions to set state and render conditionally based on user input
+    function allTime() {
+        setTracks(user.tracks)
+        setArtists(user.artists)
+        setAcousticness(user.acousticness)
+        setEnergy(user.energy)
+        setDanceability(user.danceability)
+        setPopularity(user.popularity)
+        setLiveness(user.liveness)
+        setValence(user.valence)
+
+        document.getElementById('short').classList.remove('chosen')
+        document.getElementById('med').classList.remove('chosen')
+        document.getElementById('all').classList.add('chosen')
+    }
+
+    function medTime() {
+        setTracks(user.med_tracks)
+        setArtists(user.med_artists)
+
+        setAcousticness(user.acousticness_med)
+        setEnergy(user.energy_med)
+        setDanceability(user.danceability_med)
+        setPopularity(user.popularity_med)
+        setLiveness(user.liveness_med)
+        setValence(user.valence_med)
+
+        document.getElementById('short').classList.remove('chosen')
+        document.getElementById('med').classList.add('chosen')
+        document.getElementById('all').classList.remove('chosen')
+    }
+
+    function shortTime() {
+        setTracks(user.short_tracks)
+        setArtists(user.short_artists)
+
+        setAcousticness(user.acousticness_short)
+        setEnergy(user.energy_short)
+        setDanceability(user.danceability_short)
+        setPopularity(user.popularity_short)
+        setLiveness(user.liveness_short)
+        setValence(user.valence_short)
+
+        document.getElementById('short').classList.add('chosen')
+        document.getElementById('med').classList.remove('chosen')
+        document.getElementById('all').classList.remove('chosen')
+    }
+
+
+    const artistsToDisplay = artists.map((el, i) => {
         return (
-                <CompareCardArtist key={i} index={i} artist={el} />
+            <CompareCardArtist key={i} index={i} artist={el} />
         )
     });
-    const tracksToDisplay = user.tracks.map((el, i) => {
+    const tracksToDisplay = tracks.map((el, i) => {
         return (
             <Card key={i} index={i} track={el} />
         )
@@ -30,6 +87,11 @@ function Profile({ user }) {
             <div>
             <div className='profile-container'>
                 <h2>Your Music</h2>
+                <div className='swap'>
+                    <a id='all' className="chosen" onClick={allTime}>all-time</a>
+                    <a id='med' onClick={medTime}>~6 months</a>
+                    <a id='short' onClick={shortTime}>~4 weeks</a>
+                </div>
                 <h3><span>// Analytics </span></h3>
             </div>
             <div className='analytics-container'>
@@ -40,32 +102,32 @@ function Profile({ user }) {
                 <div>
                     <h4>Energy~</h4>
                     <p>Typically, energetic tracks feel fast, loud, and noisy.</p>
-                    <ProgressBar data={Math.round(user.energy * 100)} />
+                    <ProgressBar data={Math.round(energy * 100)} />
                 </div>
                 <div>
                     <h4>Acousticness~</h4>
                     <p>How acousitc a song is.</p>
-                    <ProgressBar data={Math.round(user.acousticness * 100)} />
+                    <ProgressBar data={Math.round(acousticness * 100)} />
                 </div>
                 <div>
                     <h4>Liveness~</h4>
                     <p>Detects the presence of an audience in the recording.</p>
-                    <ProgressBar data={Math.round(user.liveness * 100)} />
+                    <ProgressBar data={Math.round(liveness * 100)} />
                 </div>
                 <div>
                     <h4>Danceability~</h4>
                     <p>How suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.</p>
-                    <ProgressBar data={Math.round(user.danceability * 100)} />
+                    <ProgressBar data={Math.round(danceability * 100)} />
                 </div>
                 <div>
                     <h4>Valence~</h4>
                     <p>Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).</p>
-                    <ProgressBar data={Math.round(user.valence * 100)} />
+                    <ProgressBar data={Math.round(valence * 100)} />
                 </div>
                 <div>
                     <h4>Popularity~</h4>
                     <p>Higher popularity represents the more popular a song is.</p>
-                    <ProgressBar data={user.popularity} />
+                    <ProgressBar data={popularity} />
                 </div>            
                 </div>
             </div>
@@ -75,12 +137,12 @@ function Profile({ user }) {
                 <div>{tracksToDisplay}</div>
                 <div>
                     <div className='focus-image'>
-                        <img className='focal-image' src={user.tracks[0].image} style={{paddingLeft: '2rem', transform: 'rotate(330deg)'}}></img>
-                        <img className='focal-image' src={user.tracks[2].image} style={{paddingRight: '2rem', transform: 'rotate(20deg'}}></img>
-                        <img className='focal-image' src={user.tracks[7].image} style={{paddingLeft: '2rem', transform: 'rotate(320deg)'}}></img>
-                        <img className='focal-image' src={user.tracks[8].image} style={{paddingRight: '2rem', transform: 'rotate(30deg)'}}></img>
-                        <img className='focal-image' src={user.tracks[5].image} style={{paddingLeft: '2rem', transform: 'rotate(330deg)'}}></img>
-                        <img className='focal-image' src={user.tracks[18].image} style={{paddingRight: '2rem', transform: 'rotate(20deg)'}}></img>
+                        <img className='focal-image' src={tracks[0].image} style={{paddingLeft: '2rem', transform: 'rotate(330deg)'}}></img>
+                        <img className='focal-image' src={tracks[2].image} style={{paddingRight: '2rem', transform: 'rotate(20deg'}}></img>
+                        <img className='focal-image' src={tracks[7].image} style={{paddingLeft: '2rem', transform: 'rotate(320deg)'}}></img>
+                        <img className='focal-image' src={tracks[8].image} style={{paddingRight: '2rem', transform: 'rotate(30deg)'}}></img>
+                        <img className='focal-image' src={tracks[5].image} style={{paddingLeft: '2rem', transform: 'rotate(330deg)'}}></img>
+                        <img className='focal-image' src={tracks[18].image} style={{paddingRight: '2rem', transform: 'rotate(20deg)'}}></img>
                     </div>
                 </div>
                 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_05_185436) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_11_202849) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,68 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_05_185436) do
     t.string "name"
     t.text "genre", default: [], array: true
     t.string "image"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "med_artists", force: :cascade do |t|
+    t.string "name"
+    t.text "genre", default: [], array: true
+    t.string "image"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "med_tracks", force: :cascade do |t|
+    t.string "name"
+    t.string "spotify_id"
+    t.string "artist"
+    t.string "album"
+    t.string "release_date"
+    t.string "image"
+    t.integer "popularity"
+    t.float "acousticness"
+    t.float "danceability"
+    t.float "energy"
+    t.float "instrumentalness"
+    t.float "liveness"
+    t.float "loudness"
+    t.float "speechiness"
+    t.float "tempo"
+    t.float "valence"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "short_artists", force: :cascade do |t|
+    t.string "name"
+    t.text "genre", default: [], array: true
+    t.string "image"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "short_tracks", force: :cascade do |t|
+    t.string "name"
+    t.string "spotify_id"
+    t.string "artist"
+    t.string "album"
+    t.string "release_date"
+    t.string "image"
+    t.integer "popularity"
+    t.float "acousticness"
+    t.float "danceability"
+    t.float "energy"
+    t.float "instrumentalness"
+    t.float "liveness"
+    t.float "loudness"
+    t.float "speechiness"
+    t.float "tempo"
+    t.float "valence"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

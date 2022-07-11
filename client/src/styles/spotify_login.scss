@@ -20,18 +20,18 @@
     margin-top: 5rem;
     padding: 1rem;
     font-size: 2rem;
-    background-color: $green;
+    background-color: black;
     font-weight: 400;
     display: inline-block;
     cursor: pointer;
     text-decoration: none;
-    color: $dark;
+    color: $green;
     opacity: 60%;
     border-radius: 1em;
 
     text-shadow: 
-      0 0 0.125em $primary,
-      0 0 0.45em $light;
+      0 0 0.125em $dark,
+      0 0 0.45em $dark;
 
     box-shadow: inset 0 0 1em 0 $green, 
     0 0 0.5em $green;

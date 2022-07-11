@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :med_artists
+  resources :short_artists
+  resources :med_tracks
+  resources :short_tracks
   resources :artists, only: [:index, :show, :create]
   resources :tracks, only: [:index, :show, :create]
   resources :users, only: [:index, :show, :create, :destroy]

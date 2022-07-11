@@ -1,0 +1,2 @@
+class ShortArtistsController < ApplicationController
+end
