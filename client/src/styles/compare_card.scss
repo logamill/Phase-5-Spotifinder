@@ -3,13 +3,13 @@
 .comp-card-container {
     display: flex;
     flex-direction: row;
-    padding-bottom: 1rem;
-    justify-content: flex-start;
-    align-items: center;
+    margin-bottom: 5rem;
+    align-items: stretch;
     align-content: center;
     flex-wrap: nowrap;
-    margin-left: 10%;
+    margin-left: 6rem;
 }
+
 .comp-card {
     display: flex;
     align-items: center;
@@ -43,12 +43,13 @@
 
 .comp-card-title {
     padding-left: 2rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
 .comp-card-body {
     padding-left: 4rem;
+    font-size: 1.5rem;
     font-style: italic;
 
 }

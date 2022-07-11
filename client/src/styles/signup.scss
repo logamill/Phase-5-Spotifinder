@@ -24,11 +24,11 @@
     }
   
     &__input {
-      font-size: 1.5rem;
+      font-size: 1rem;
       font-family: inherit;
       color: $dark;
       padding: 1.5rem 2rem;
-      border-radius: 2px;
+      border-radius: 15px;
       background-color: rgba($light, 0.5);
       border: none;
       border-bottom: 3px solid transparent;
@@ -52,10 +52,11 @@
       }
     }
     &__label {
-      font-size: 1.2rem;
-      font-weight: 700;
+      font-size: 1rem;
+      font-weight: 400;
       margin-left: 2rem;
       margin-top: 0.7rem;
+      color: $light;
       display: block;
       transition: all 0.3s;
     }
@@ -76,19 +77,21 @@
   
     &__btn-text {
       width: 100%;
-      font-size: 1.8rem;
+      font-size: 1rem;
       color: $dark;
-      background-color: transparent;
+      background-color: $orange;
       border: none;
       display: inline-block;
+      border-radius: 15px;
       text-decoration: none;
-      border-bottom: 1px solid $dark;
+      border-bottom: 1px solid grey;
       padding: 1rem 2rem;
       transition: all 0.2s;
   
       &:hover {
-        background-color: $dark;
+        background-color: $green;
         color: $light;
+        cursor: pointer;
         box-shadow: 0 1rem 2rem rgba($dark, 0.15);
         transform: translateY(-2px);
       }

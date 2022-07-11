@@ -23,9 +23,6 @@ function Compare ( props ) {
         })
     },[])
 
-    console.log(compare)
-    console.log(tracks)
-
     let compareData = Math.round(100 - ((Math.max(user.taste, compare.taste) - Math.min(user.taste, compare.taste)) * 5))
     // let compareData = 100 - Math.round(((user.taste + compare.taste) / 2))
     return (
@@ -35,55 +32,32 @@ function Compare ( props ) {
             <div>loading...</div>
         :
     <div className='compare-header'>
+        <div className='header-text'>
         <h2>{compare.name}'s Top Music</h2>
-        <h3> + you</h3>
-        <h3 className='compare-sub-header'> // songs</h3>
+        <h3 className='compare-sub-header'>// + you</h3></div>
         {/* <span>{props.user.name}</span>
         <span>{compare.name}</span> */}
-        <div className='compare-container'>
-            <div className='self-compare'>
-                {
-                    compare.tracks.length > 0 ? 
-                    compare.tracks.slice(0,5).map((el, i) => {
-                        return (
-                            <CompareCard key={i} index={i} track={el} />
-                        )
-                        })
-                : <span className='fail-span'>{compare.name} doesn't have enough track data</span>}
-            <h6>// {compare.name}</h6>
+        <div className='match-conatiner'>
+            <div className='compare-container'>
+                <div className='self-compare'>
+                    <h6>// {compare.name}</h6>
+                    <img className="compare-image" src={compare.image} />
+                </div>
+                <div className='compare-bar'>
+                    <MatchBar data={compareData} />
+                </div>
+                <div className='user-compare'>
+                    <h6>// {user.name}</h6>
+                    <img className="compare-image" src={user.image} />
+                </div>
             </div>
-            <div className='compare-bar'>
-                <MatchBar data={compareData} />
-            </div>
-            <div className='user-compare'>{
-                user.tracks.slice(0, 5).map((el, i) => {
-                    return (
-                        <CompareCard key={i} index={i} track={el} />
-                    )
-                    })
-            }
-            <h6>// {user.name}</h6>
-            </div>
-        </div>
-        <div className='image-compare' >
-            <img id='compare-image' src={compare.image}/>
             <h5>Based off your advanced listening analytics, you and {compare.name} are a {compareData}% match!</h5>
-            <img id='user-image' src={user.image} />
         </div>
         <div>
-        <h3 className='compare-sub-header'> // artists</h3>
-        <div className='compare-container'>
-        <div className='self-compare'>
-                { compare.artists.length > 0 ?
-                    compare.artists.slice(0,5).map((el, i) => {
-                        return (
-                            <CompareCardArtist key={i} index={i} artist={el} />
-                        )
-                        }) : <span className='fail-span'>{compare.name} doesn't have enough artist data</span>
-}
-            </div>
-            <div className='user-compare'>{
-                user.artists.slice(0, 5).map((el, i) => {
+        <div className='compare-artist-list'>
+        <h3 id='artist-header'> // artists</h3>
+            <div className='compare-artist'>{
+                compare.artists.slice(0, 10).map((el, i) => {
                     return (
                         <CompareCardArtist key={i} index={i} artist={el} />
                     )
@@ -91,9 +65,20 @@ function Compare ( props ) {
             }</div>
         </div>
         </div>
+        <div className='compare-track-list'>
+            <h3 id="tracks-header"> // tracks </h3>
+            <div className='compare-track'> {
+                compare.tracks.slice(0, 10).map((el, i) => {
+                    return (
+                        <CompareCard key={i} index={i} track={el} />
+                    )
+                })}
+            </div>
+        </div>
         </div>
         }
-        <h3>// analytics</h3>
+        
+        <h3 id="analytics-header">// analytics</h3>
         <div className='analytics-container'>
             <h1>{compare.name}'s Analytics</h1>
             <div class="bars">

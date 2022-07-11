@@ -10,4 +10,5 @@ class TracksController < ApplicationController
         tracks = user.tracks.all
         render json: tracks 
     end 
+    
 end

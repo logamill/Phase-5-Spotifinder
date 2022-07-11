@@ -13,7 +13,7 @@ function Profile({ user }) {
     } else if (user.spotify_id && user.tracks.length < 20 || user.artists.length < 20) {
         history.push('/declined')}
 
-        
+
     const artistsToDisplay = user.artists.map((el, i) => {
         return (
                 <CompareCardArtist key={i} index={i} artist={el} />
@@ -33,7 +33,7 @@ function Profile({ user }) {
                 <h3><span>// Analytics </span></h3>
             </div>
             <div className='analytics-container'>
-            <h1>Track Analytics</h1>
+            {/* <h1> Listening Analytics</h1> */}
             <h2>Visualize your listening habits~</h2>
 
             <div class="bars">
@@ -70,7 +70,7 @@ function Profile({ user }) {
                 </div>
             </div>
             </div>
-            <h3>//Top Songs All Time</h3>
+            <h3 id="top-songs">// tracks</h3>
             <div className='cards-container'>
                 <div>{tracksToDisplay}</div>
                 <div>

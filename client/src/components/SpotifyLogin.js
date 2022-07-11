@@ -9,12 +9,9 @@ export default function SpotifyLogin({ user }) {
   const [loadingData, setLoadingData] = useState(false)
   const history = useHistory()
 
-  useEffect(() => {
-    if(user.spotify_id) {
-      console.log('hi boss')
-    }
-  }, [])
-
+  if(user.spotify_id !== null) {
+    history.push('/profile');
+  }
   function handleAuth() {
     setLoadingData(true);
     setTimeout(() => {
@@ -23,7 +20,6 @@ export default function SpotifyLogin({ user }) {
       window.location.reload();
     }, 10000);
     };
-
 
   return (
     <div>

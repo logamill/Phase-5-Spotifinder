@@ -9,7 +9,6 @@ function Browse( user, setUserData ) {
     const [loading, setLoading] = useState(true);
     const history = useHistory();
     
-    console.log(setUserData)
     useEffect(() => {
         fetch('/users')
             .then(res => res.json())

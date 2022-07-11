@@ -43,7 +43,13 @@ class UsersController < ApplicationController
     
             # Get user's top played artists and tracks
             top_artists = spotify_user.top_artists(time_range: 'long_term') #=> (Artist array)
+            med_artists = spotify_user.top_artists(time_range: 'medium_term')
+            short_artists = spotify_user.top_artists(time_range: 'short_term')
+
             top_tracks = spotify_user.top_tracks(time_range: 'long_term') #=> (Track array)
+            med_tracks = spotify_user.top_tracks(time_range: 'medium_term') #=> (medium Tracks)
+            short_tracks = spotify_user.top_tracks(time_range: 'short_term')
+            
             
             top_tracks.each do |t|
                 j = t.audio_features
@@ -66,31 +72,94 @@ class UsersController < ApplicationController
                     user_id: @current_user.id
                 )
             end
-        end
-        top_artists.each do |t|
-            Artist.create!(
-                name: t.name,
-                genre: t.genres,
-                image: t.images[0]['url'],
-                user_id: @current_user.id
-            )
-        end
 
-        ## conditionally update user image with default if image is nil 
-        if spotify_user.images[0].nil?
-            @current_user.update!(name: spotify_user.display_name, 
-            email: spotify_user.email, 
-            url: spotify_user.external_urls['spotify'],
-            credentials: spotify_user.credentials,
-            :spotify_id=>spotify_user.id, 
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/White_Duck_%2835416314665%29.jpg/1122px-White_Duck_%2835416314665%29.jpg')
-         else
-            @current_user.update!(name: spotify_user.display_name, 
-            email: spotify_user.email, 
-            url: spotify_user.external_urls['spotify'],
-            credentials: spotify_user.credentials,
-            :spotify_id=>spotify_user.id, 
-            image: spotify_user.images[0].url)
+            med_tracks.each do |t|
+                j = t.audio_features
+                Track.create!(
+                    name: t.name,
+                    spotify_id: t.id,
+                    artist: t.artists.first.name,
+                    album: t.album.name,
+                    image: t.album.images[0]['url'],
+                    popularity: t.popularity,
+                    acousticness: j.acousticness,
+                    danceability: j.danceability,
+                    energy: j.energy,
+                    instrumentalness: j.instrumentalness,
+                    liveness: j.liveness,
+                    loudness: j.loudness,
+                    speechiness: j.speechiness,
+                    tempo: j.tempo,
+                    valence: j.valence,
+                    user_id: @current_user.id
+                )
+            end
+
+            short_tracks.each do |t|
+                j = t.audio_features
+                Track.create!(
+                    name: t.name,
+                    spotify_id: t.id,
+                    artist: t.artists.first.name,
+                    album: t.album.name,
+                    image: t.album.images[0]['url'],
+                    popularity: t.popularity,
+                    acousticness: j.acousticness,
+                    danceability: j.danceability,
+                    energy: j.energy,
+                    instrumentalness: j.instrumentalness,
+                    liveness: j.liveness,
+                    loudness: j.loudness,
+                    speechiness: j.speechiness,
+                    tempo: j.tempo,
+                    valence: j.valence,
+                    user_id: @current_user.id
+                )
+            end
+
+            top_artists.each do |t|
+                Artist.create!(
+                    name: t.name,
+                    genre: t.genres,
+                    image: t.images[0]['url'],
+                    user_id: @current_user.id
+                )
+            end
+
+            med_artists.each do |t|
+                Artist.create!(
+                    name: t.name,
+                    genre: t.genres,
+                    image: t.images[0]['url'],
+                    user_id: @current_user.id
+                )
+            end
+
+            short_artists.each do |t|
+                Artist.create!(
+                    name: t.name,
+                    genre: t.genres,
+                    image: t.images[0]['url'],
+                    user_id: @current_user.id
+                )
+            end
+
+            ## conditionally update user image with default if image is nil 
+            if spotify_user.images[0].nil?
+                @current_user.update!(name: spotify_user.display_name, 
+                email: spotify_user.email, 
+                url: spotify_user.external_urls['spotify'],
+                credentials: spotify_user.credentials,
+                :spotify_id=>spotify_user.id, 
+                image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/White_Duck_%2835416314665%29.jpg/1122px-White_Duck_%2835416314665%29.jpg')
+            else
+                @current_user.update!(name: spotify_user.display_name, 
+                email: spotify_user.email, 
+                url: spotify_user.external_urls['spotify'],
+                credentials: spotify_user.credentials,
+                :spotify_id=>spotify_user.id, 
+                image: spotify_user.images[0].url)
+            end
         end
     end
 

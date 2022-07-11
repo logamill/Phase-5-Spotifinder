@@ -1,14 +1,15 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import '../styles/signup.scss'
+import { useForm } from 'react-hook-form';
+import '../styles/signup.scss';
 
 export default function Login({ onLogin }) {
   const history = useHistory();
+  const {register, watch} = useForm();
   // const [errors, setErrors] = useState([]);
   const handleLogin = async (e) => {
     e.preventDefault();
     let form = new FormData(document.querySelector(`#signup-form`));
-
     let response = await fetch(`/login`, {
       method: `POST`,
       body: form,
@@ -48,6 +49,9 @@ export default function Login({ onLogin }) {
             placeholder="Password"
             id="password"
             name="password"
+            {...register("password", {
+              required: true
+            })}
           />
           <label for="password" class="form__label">
             Password

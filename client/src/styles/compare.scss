@@ -6,17 +6,23 @@
     flex-direction: column;
 
     h2 {
-     font-size: 8rem;
+     font-size: 4rem;
     }
+
     h3 {
-      font-size: 8rem;
-      color: $dark;
+      font-size: 4rem;
+      color: $primary;
       margin-left: 30%;
-      // text-decoration: line-through
     }
+
     h4 {
         font-size: 5rem;
         text-align: center;
+    }
+
+    h5 {
+        text-align: center;
+        margin-bottom: 5rem;
     }
 }
 
@@ -25,31 +31,51 @@
     margin-right: 10%;
     margin-bottom: 2rem;
 }
+
 .compare-container {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     border-radius: 20px;
     justify-content: space-around;
+    margin: 5rem;
+
+    .match-conatiner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
     h6 {
         align-items: center;
         display: flex;
         flex-direction: column;
         font-size: 2rem;
-        color: $dark;
+        margin-bottom: 1rem;
+        color: $primary;
         text-decoration: line-through;
         font-style: italic;
+    }
+    .compare-image  {
+        width: 20rem;
+        height: 20rem;
+        border-radius: 100%;
+
     }
 }
 
 .user-compare {
     width: 33%;
+    margin-right: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .compare-bar {
     display: flex;
-    width: 33%;
+    width: 15%;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
@@ -59,6 +85,10 @@
 
 .self-compare {
     width: 33%;
+    margin-left: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .image-compare {
@@ -72,7 +102,7 @@
     }
 
     h5 {
-        font-size: 3rem;
+        font-size: 2rem;
         width: 50%;
         text-align: center;
         font-style: italic;
@@ -90,7 +120,7 @@
       
       h3 {
         font-size: 10rem;
-        color: $dark;
+        color: $primary;
         margin-right: 10%;
         margin-bottom: 5rem;
         text-align: right;
@@ -109,10 +139,10 @@
     flex-direction: column;
 
     h4 {
-        font-size: 8rem;
-        color: $dark;
+        font-size: 6rem;
+        color: $primary;
+        padding-bottom: 4rem;
     }
-
 }
 
 #spot-logo { 
@@ -131,11 +161,42 @@
         padding-left: 4rem;
         width: 5%;
         padding-top: 5rem;
-        font-size: 13rem;
+        font-size: 10rem;
     }
   }
   .fail-span {
     font-size: 2rem;
     font-style: italic;
     font-weight: 500;
+  }
+
+  .compare-artist {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 100px);
+    justify-items: center;
+    grid-gap: 10px;
+  }
+
+  .compare-track {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: start;
+    margin-left: 5%
+  }
+
+  #artist-header {
+    font-size: 5rem;
+    color: $primary;
+    padding: 5rem;
+  }
+  #tracks-header {
+    font-size: 5rem;
+    color: $orange;
+    padding: 5rem;
+  }
+
+  #analytics-header {
+    font-size: 5rem;
+    color: $green;
   }
