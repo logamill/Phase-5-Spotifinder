@@ -9,7 +9,7 @@ function BarCard( props ) {
         <img className='bar-card-image' src={props.track.image}></img>
         <div className='bar-card-text'>
             <span class="bar-card-title">{props.track.name}</span>
-            <span class="bar-card-body">{props.track.artist}: {Math.round(props.number * 100)}%</span>
+            <span class="bar-card-body">{props.track.artist} <span className='bar-card-body-end'>{Math.round(props.number * 100)}%</span></span>
             {/* <span class="bar-card-number">{props.number}</span> */}
         </div>
     </div>

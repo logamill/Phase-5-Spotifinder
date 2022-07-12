@@ -8,6 +8,7 @@ class UserSerializer < ActiveModel::Serializer
   :danceability_short, :danceability_med, :danceability, 
   :acousticness_short, :acousticness_med, :acousticness, 
   :liveness_short, :liveness_med, :liveness, 
-  :popularity_short, :popularity_med, :popularity
+  :popularity_short, :popularity_med, :popularity,
+  :match
 end
  

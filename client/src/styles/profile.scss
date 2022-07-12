@@ -21,6 +21,7 @@ body {
     font-weight: 500;
     opacity: 60%;
     margin: 2em;
+    padding-left: 3rem;
     cursor: pointer;
   }
   a:hover {
@@ -71,6 +72,7 @@ h3 {
     h2 {
         font-size: 6rem;
         margin-top: 2rem;
+        margin-left: 5rem;
     }
     span {
       color: $green;

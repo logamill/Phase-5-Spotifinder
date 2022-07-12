@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import User from './User';
 import '../styles/browse.scss';
+import { FaGratipay } from 'react-icons/fa'
 
 function Browse( user, setUserData ) {
+
     const [users, setUsers] = useState([]);
     const [compareUser, setCompareUser] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -18,6 +20,11 @@ function Browse( user, setUserData ) {
                 setLoading(false)
             })
     }, [])
+
+    function findMatch() {
+        let matchID = user.user.match.id
+        history.push(`/compare/${matchID}`)
+    }
 
     function handleUserClick(data) {
         const id = data.id
@@ -41,7 +48,7 @@ function Browse( user, setUserData ) {
         <>
             <div className='browse-header'>
                 <h2>All users</h2>
-                <h3><span>// + match</span></h3>
+                <h3><span>// match  <FaGratipay style={{ height: "5rem", marginLeft: "2rem", alignContent: "center", justifyContent: "center"}} onClick={findMatch}/></span></h3>
             </div>
             <div className='browse-users'>{usersToDisplay}</div>
         </>

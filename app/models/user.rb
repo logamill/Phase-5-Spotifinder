@@ -283,4 +283,24 @@ class User < ApplicationRecord
         return 0
     end
 
+    def match 
+        if self.tracks.exists?
+            list = User.all.sort_by { |user| user.taste }
+            index = list.find_index(self) 
+            index_high = (index + 1)
+            index_low = (index - 1)
+        
+            if(list[index_low] && list[index_high])
+                lower = (list[index].taste - list[index_low].taste)
+                higher = (list[index_high].taste - list[index].taste)
+                return lower > higher ? list[index_high] : list[index_low]
+            elsif (!list[index_low])
+                return list[index_high]
+            elsif (!list[index_high])
+                return list[index_low]
+            else 
+                return nil 
+            end
+        end
+    end
 end

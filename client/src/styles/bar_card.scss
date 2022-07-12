@@ -36,8 +36,9 @@
 
 .bar-card-text {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
+
 }
 
 .bar-card-title {
@@ -52,5 +53,12 @@
 }
 .bar-card-content {
     padding: 1.5rem;
-    background: hsl(0 0% 0% / 1)
+    background: hsl(0 0% 0% / 1);
+    align-items: flex-end;
+    display: flex;
+}
+
+.bar-card-body-end {
+    justify-content: flex-end;
+   
 }

@@ -183,7 +183,7 @@ function Profile({ user }) {
                     {
                         popularityTracks.slice(0,3).map((el, i) => {
                             return (
-                            <BarCard key={i} index={i} track={el} number={el.popularity}/>)
+                            <BarCard key={i} index={i} track={el} number={el.popularity / 100}/>)
                         })
                     }
                 </div>            

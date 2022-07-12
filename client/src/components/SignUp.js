@@ -1,20 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import Errors from "./Errors";
 
 export default function Signup({ onLogin }) {
   let history = useHistory();
+  const [errors, setErrors] = useState([])
 
   const handleSignup = async (e) => {
     e.preventDefault();
     let form = new FormData(document.querySelector(`#signup-form`));
+    if (e.target['password'].value !== e.target['confirmed-password'].value) {
+      setErrors(["Passwords do not match"])
+    }
     let req = await fetch(`/signup`, {
       method: `POST`,
       body: form,
     });
-    let user = await req.json();
-    console.log(user)
-    onLogin(user);
-    history.push(`/spotify/login`);
+    if (req.ok) {
+      let user = await req.json();
+      console.log(user)
+      onLogin(user);
+      history.push(`/spotify/login`)
+    }else{
+      req.json().then((err) => setErrors(err.errors))
+    }
   };
 
   return (
@@ -66,6 +75,7 @@ export default function Signup({ onLogin }) {
             Sign up &rarr;
           </button>
         </div>
+        {errors !== [] ? <Errors props={errors} /> : null }
       </form>
     </div>
   );

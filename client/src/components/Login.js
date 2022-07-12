@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useForm } from 'react-hook-form';
 import '../styles/signup.scss';
+import Errors from "./Errors";
 
 export default function Login({ onLogin }) {
   const history = useHistory();
-  const {register, watch} = useForm();
+  const [errors, setErrors] = useState([]);
+
   // const [errors, setErrors] = useState([]);
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ export default function Login({ onLogin }) {
       history.push(`/profile`);
       onLogin(user);
     } else {
-      response.json().then((err) => console.log(err.errors));
+      response.json().then((err) => setErrors(err.errors));
     }
   };
 
@@ -49,9 +50,6 @@ export default function Login({ onLogin }) {
             placeholder="Password"
             id="password"
             name="password"
-            {...register("password", {
-              required: true
-            })}
           />
           <label for="password" class="form__label">
             Password
@@ -61,6 +59,7 @@ export default function Login({ onLogin }) {
         <div className="form__group">
           <button className="form__btn-text">Log in &rarr;</button>
         </div>
+        {errors !== [] ? <Errors props={errors} /> : null }
       </form>
     </div>
   );
