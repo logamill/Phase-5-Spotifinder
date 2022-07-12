@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Card from './Card';
+import BarCard from './BarCard';
 import '../styles/profile.scss'
 import { useHistory } from 'react-router-dom'
 import ProgressBar from './ProgressBar';
+import TrackCarousel from './TrackCarousel';
 import CompareCardArtist from '../components/CompareCardArtist'
 
 function Profile({ user }) {
@@ -81,6 +83,26 @@ function Profile({ user }) {
             <Card key={i} index={i} track={el} />
         )
         });
+
+    const energyTracks = [...tracks].sort((a, b) => {
+        return (a.energy < b.energy) ? 1 :(b.energy < a.energy) ? -1 : 0})
+
+    const livenessTracks = [...tracks].sort((a, b) => {
+        return (a.liveness < b.liveness) ? 1 :(b.liveness < a.liveness) ? -1 : 0})
+
+    const danceabilityTracks = [...tracks].sort((a, b) => {
+        return (a.danceability < b.danceability) ? 1 :(b.danceability < a.danceability) ? -1 : 0})
+
+    const valenceTracks = [...tracks].sort((a, b) => {
+        return (a.valence < b.valence) ? 1 :(b.valence < a.valence) ? -1 : 0})
+
+    const popularityTracks = [...tracks].sort((a, b) => {
+        return (a.popularity < b.popularity) ? 1 :(b.popularity < a.popularity) ? -1 : 0})
+
+    const acousticnessTracks = [...tracks].sort((a, b) => {
+        return (a.acousticness < b.acousticness) ? 1 :(b.acousticness < a.acousticness) ? -1 : 0})
+
+
     return (
         
         <div className='profile'>
@@ -92,7 +114,7 @@ function Profile({ user }) {
                     <a id='med' onClick={medTime}>~6 months</a>
                     <a id='short' onClick={shortTime}>~4 weeks</a>
                 </div>
-                <h3><span>// Analytics </span></h3>
+                <h3><span>// analytics </span></h3>
             </div>
             <div className='analytics-container'>
             {/* <h1> Listening Analytics</h1> */}
@@ -103,37 +125,79 @@ function Profile({ user }) {
                     <h4>Energy~</h4>
                     <p>Typically, energetic tracks feel fast, loud, and noisy.</p>
                     <ProgressBar data={Math.round(energy * 100)} />
+                    {
+                        energyTracks.slice(0,3).map((el, i) => {
+                            return (
+                            <BarCard key={i} index={i} track={el} number={el.energy} />)
+                        })
+                    }
                 </div>
                 <div>
                     <h4>Acousticness~</h4>
                     <p>How acousitc a song is.</p>
                     <ProgressBar data={Math.round(acousticness * 100)} />
+                    {
+                        acousticnessTracks.slice(0,3).map((el, i) => {
+                            return (
+                            <BarCard key={i} index={i} track={el} number={el.acousticness}/>)
+                        })
+                    }
                 </div>
                 <div>
                     <h4>Liveness~</h4>
                     <p>Detects the presence of an audience in the recording.</p>
                     <ProgressBar data={Math.round(liveness * 100)} />
+                    {
+                        livenessTracks.slice(0,3).map((el, i) => {
+                            return (
+                            <BarCard key={i} index={i} track={el} number={el.liveness}/>)
+                        })
+                    }
                 </div>
                 <div>
                     <h4>Danceability~</h4>
                     <p>How suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.</p>
                     <ProgressBar data={Math.round(danceability * 100)} />
+                    {
+                        danceabilityTracks.slice(0,3).map((el, i) => {
+                            return (
+                            <BarCard key={i} index={i} track={el} number={el.danceability}/>)
+                        })
+                    }
                 </div>
                 <div>
                     <h4>Valence~</h4>
                     <p>Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).</p>
                     <ProgressBar data={Math.round(valence * 100)} />
+                    {
+                        valenceTracks.slice(0,3).map((el, i) => {
+                            return (
+                            <BarCard key={i} index={i} track={el} number={el.valence}/>)
+                        })
+                    }
                 </div>
                 <div>
                     <h4>Popularity~</h4>
                     <p>Higher popularity represents the more popular a song is.</p>
                     <ProgressBar data={popularity} />
+                    {
+                        popularityTracks.slice(0,3).map((el, i) => {
+                            return (
+                            <BarCard key={i} index={i} track={el} number={el.popularity}/>)
+                        })
+                    }
                 </div>            
                 </div>
             </div>
             </div>
             <h3 id="top-songs">// tracks</h3>
-            <div className='cards-container'>
+
+            <div className='carousel'>
+                <TrackCarousel data={tracks}/>
+            </div>
+
+            {/* <h3 id="top-songs">// tracks</h3> */}
+            {/* <div className='cards-container'>
                 <div>{tracksToDisplay}</div>
                 <div>
                     <div className='focus-image'>
@@ -146,14 +210,17 @@ function Profile({ user }) {
                     </div>
                 </div>
                 
-            </div>
+            </div> */}
             
             <div className='artist-header'>
             <h3>// artists </h3>
             </div>
-            <div className='artist-container'>
+                 <div className='carousel'>
+                    <TrackCarousel data={artists}/>
+                </div>
+            {/* <div className='artist-container'>
                 {artistsToDisplay}
-            </div>
+            </div> */}
         </div>
     )
 }

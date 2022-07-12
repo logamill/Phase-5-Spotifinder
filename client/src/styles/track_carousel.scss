@@ -1,0 +1,57 @@
+@import './variables.scss';
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
+
+.track-carousel-container {
+    width: 75%;
+    margin: 10rem auto;
+}
+
+.slide img{ 
+    width: 25rem;
+    height: 25rem;
+    margin: 0 auto;
+}
+
+.slide {
+    transform: scale(0.4);
+    transition: transform 300ms;
+    opacity: .5;
+    z-index: 1;
+    margin-bottom: 5rem;
+}
+
+.activeSlide {
+    transform: scale(1.1);
+    opacity: 100%;
+    z-index: 100;
+}
+
+.arrow {
+    position: absolute;
+    z-index: 10;
+}
+svg {
+    transition: color 300ms;
+    cursor: pointer;
+}
+
+svg:hover {
+    color: $green
+}
+
+.next {
+    right: 0%;
+    top: 50%;
+}
+
+.prev {
+    left: 0%;
+    top: 50%;
+}
+
+.info {
+    font-size: 1rem;
+    margin-bottom: 3rem;
+    font-style: italic;
+}

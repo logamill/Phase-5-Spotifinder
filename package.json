@@ -2,13 +2,18 @@
     "name": "example-project",
     "description": "Build scripts for Heroku",
     "engines": {
-      "node": "16.x",
-      "npm": "6.x"
+        "node": "16.x",
+        "npm": "6.x"
     },
     "scripts": {
-      "build": "npm install --prefix client && npm run build --prefix client",
-      "clean": "rm -rf public",
-      "deploy": "cp -a client/build/. public/",
-      "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
+        "build": "npm install --prefix client && npm run build --prefix client",
+        "clean": "rm -rf public",
+        "deploy": "cp -a client/build/. public/",
+        "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
+    },
+    "dependencies": {
+        "react-icons": "^4.4.0",
+        "react-slick": "^0.29.0",
+        "slick-carousel": "^1.8.1"
     }
-  }
+}

@@ -1,0 +1,56 @@
+@import "./variables.scss";
+
+.bar-card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 10%;
+    padding-bottom: 1rem;
+    align-items: center;
+
+}
+.bar-card {
+    display: flex;
+    align-items: center;
+    color: black;
+    background-size: cover;
+    max-width: 35ch;
+}
+
+.bar-card-index {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 1rem;
+    justify-content: center;
+    text-align: center;
+    // font-size: 2rem;
+    font-weight: 600;
+    color: grey;
+}
+
+.bar-card-image {
+    height: 2rem;
+    width: 2rem;
+}
+
+.bar-card-text {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.bar-card-title {
+    padding-left: 2rem;
+    font-weight: bold;
+}
+
+.bar-card-body {
+    padding-left: 4rem;
+    font-style: italic;
+
+}
+.bar-card-content {
+    padding: 1.5rem;
+    background: hsl(0 0% 0% / 1)
+}
