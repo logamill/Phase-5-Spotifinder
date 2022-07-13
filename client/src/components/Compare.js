@@ -131,8 +131,6 @@ function Compare ( props ) {
         return (a.acousticness < b.acousticness) ? 1 :(b.acousticness < a.acousticness) ? -1 : 0})
 
 
-
-
     let compareData = Math.round(100 - ((Math.max(user.taste, compare.taste) - Math.min(user.taste, compare.taste)) * 5))
     // let compareData = 100 - Math.round(((user.taste + compare.taste) / 2))
     return (
@@ -143,7 +141,7 @@ function Compare ( props ) {
         :
     <div className='compare-header'>
         <div className='header-text'>
-        <h2>{compare.name}'s Top Music</h2>
+        <h2>{compare.name}</h2>
         {/* <h3 className='compare-sub-header'>// + you</h3> */}
         </div>
         <div className='swap'>

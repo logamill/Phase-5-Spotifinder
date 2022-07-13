@@ -131,7 +131,12 @@ function Profile({ user }) {
             <h2>Visualize your listening habits~</h2>
             <div class="bars">
                 <div>
-                    <h4>Energy~ <span>  <a className="top-btn" onClick={() => setEnergyTop(!energyTop)}>swap</a></span></h4>
+                    <h4>Energy~ <span>  
+                        {energyTop ? 
+                        <a className="top-btn" onClick={() => setEnergyTop(!energyTop)}>high</a> :
+                        <a className="btm-btn" onClick={() => setEnergyTop(!energyTop)}>low</a>}
+                        </span>
+                        </h4>
                     <p>Typically, energetic tracks feel fast, loud, and noisy.</p>
                     <ProgressBar data={Math.round(energy * 100)} />
                     <div className='top-low-container'>
@@ -152,7 +157,11 @@ function Profile({ user }) {
                         </div>
                 </div>
                 <div>
-                    <h4>Acousticness~ <span>  <a className="top-btn" onClick={() => setAcousticnessTop(!acousticnessTop)}>swap</a></span></h4>
+                    <h4>Acousticness~ <span>
+                    {acousticnessTop ? 
+                        <a className="top-btn" onClick={() => setAcousticnessTop(!acousticnessTop)}>high</a> :
+                        <a className="btm-btn" onClick={() => setAcousticnessTop(!acousticnessTop)}>low</a>}                        
+                    </span></h4>
                     <p>How acousitc a song is.</p>
                     <ProgressBar data={Math.round(acousticness * 100)} />
                     <div className='top-low-container'>
@@ -173,7 +182,11 @@ function Profile({ user }) {
                         </div>
                 </div>
                 <div>
-                    <h4>Liveness~ <span>  <a className="top-btn" onClick={() => setLivenessTop(!livenessTop)}>swap</a></span></h4>
+                    <h4>Liveness~ <span>
+                    {livenessTop ? 
+                        <a className="top-btn" onClick={() => setLivenessTop(!livenessTop)}>high</a> :
+                        <a className="btm-btn" onClick={() => setLivenessTop(!livenessTop)}>low</a>}                        
+                    </span></h4>
                     <p>Detects the presence of an audience in the recording.</p>
                     <ProgressBar data={Math.round(liveness * 100)} />
                     <div className='top-low-container'>
@@ -194,7 +207,11 @@ function Profile({ user }) {
                         </div>
                 </div>
                 <div>
-                    <h4>Danceability~ <span>  <a className="top-btn" onClick={() => setDanceabilityTop(!danceabilityTop)}>swap</a></span></h4>
+                    <h4>Danceability~ <span>
+                    {danceabilityTop ? 
+                        <a className="top-btn" onClick={() => setDanceabilityTop(!danceabilityTop)}>high</a> :
+                        <a className="btm-btn" onClick={() => setDanceabilityTop(!danceabilityTop)}>low</a>}
+                        </span></h4>
                     <p>How suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.</p>
                     <ProgressBar data={Math.round(danceability * 100)} />
                     <div className='top-low-container'>
@@ -215,7 +232,11 @@ function Profile({ user }) {
                     </div>
                 </div>
                 <div>
-                    <h4>Valence~ <span>  <a className="top-btn" onClick={() => setValenceTop(!valenceTop)}>swap</a></span></h4>
+                    <h4>Valence~ <span>
+                    {valenceTop ? 
+                        <a className="top-btn" onClick={() => setValenceTop(!valenceTop)}>high</a> :
+                        <a className="btm-btn" onClick={() => setValenceTop(!valenceTop)}>low</a>}
+                        </span></h4>
                     <p>Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).</p>
                     <ProgressBar data={Math.round(valence * 100)} />
                     <div className='top-low-container'>
@@ -236,7 +257,11 @@ function Profile({ user }) {
                         </div>
                 </div>
                 <div>
-                    <h4>Popularity~ <span>  <a className="top-btn" onClick={() => setPopularityTop(!popularTop)}>swap</a></span></h4>
+                    <h4>Popularity~ <span>
+                    {popularTop ? 
+                        <a className="top-btn" onClick={() => setPopularityTop(!popularTop)}>high</a> :
+                        <a className="btm-btn" onClick={() => setPopularityTop(!popularTop)}>low</a>}
+                        </span></h4>
                     <p>Higher popularity represents the more popular a song is.</p>
                     <ProgressBar data={popularity} />
                     <div className='top-low-container'>

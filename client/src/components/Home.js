@@ -9,13 +9,47 @@ function Home({user}) {
     const [tracks, setTracks] = useState([])
 
         return (
+        <div>
+            <div id="particle-container">
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+	<div class="particle"></div>
+</div>
         <Container>
-        <img 
-            src={spotifinder}
-            alt='spotify'
-            id='spotify-gif'/>
+            <img 
+                src={spotifinder}
+                alt='spotify'
+                id='spotify-gif'/>
             <h5>Find what sparks you.</h5>
         </Container>
+        </div>
   );
 }
 

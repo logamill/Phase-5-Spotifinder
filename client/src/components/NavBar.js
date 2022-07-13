@@ -3,12 +3,13 @@ import React, { useEffect, useState } from "react";
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import classes from "../styles/NavBar.module.scss";
-import { useHistory, useParams, Link } from "react-router-dom";
+import { useHistory, useLocation, Link } from "react-router-dom";
 import SpotifyLogin from "./SpotifyLogin";
 import logo from '../logo.png';
 // import logo from '../spotifinderlogo.png';
 
 function NavBar({ user, setUser }) {
+    const location = useLocation();
     const history = useHistory();
     const [menuOpen, setMenuOpen] = useState(false);
     const [size, setSize] = useState({
@@ -16,6 +17,7 @@ function NavBar({ user, setUser }) {
         height: undefined,
     });
 
+    console.log(location.pathname)
 
     useEffect(() => {
         const handleResize = () => {
@@ -53,6 +55,7 @@ function NavBar({ user, setUser }) {
     return (
         <header className={classes.header}>
             <div className={classes.header__content}>
+                
                 <Link to="/" className={classes.logo} >
                     <img className={classes.logo} src={logo} />
                 </Link>

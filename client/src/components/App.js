@@ -15,7 +15,7 @@ import Browse from './Browse';
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [tracks, setTracks] = useState([])
+  const [tracks, setTracks] = useState([]);
 
 
   useEffect(() => {
