@@ -4,26 +4,38 @@
     display: flex;
     position: relative;
     flex-direction: column;
-
     h2 {
-        font-size: 6rem;
+        font-size: 5rem;
         margin-left: 5rem;
     }
     h3 {
       font-size: 5rem;
       color: $dark;
       margin-left: 30%;
+      display: flex;
+      justify-content: flex-end;
+
       // text-decoration: line-through
 
       span {
-        color: $orange;
+        color: $dark;
+        display: flex;
+        flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-end;
+        // background-color: $orange;
+
+        svg {
+            display: flex;
+            color: $orange;
+        }
+        svg:hover {
+            color: $green;
+        }
       }
     }
 }
 
 .user-select {
     margin: 1.5rem;
-
 }

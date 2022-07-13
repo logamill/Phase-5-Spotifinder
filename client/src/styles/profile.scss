@@ -19,7 +19,7 @@ body {
   a {
     font-size: 1.5rem;
     font-weight: 500;
-    opacity: 60%;
+    opacity: 30%;
     margin: 2em;
     padding-left: 3rem;
     cursor: pointer;
@@ -32,6 +32,38 @@ body {
   }
 }
 
+.top-btn {
+  font-size: .7em;
+  margin: .6em;
+  font-weight: 600;
+  color: $green;
+  cursor: pointer;
+  border: 1px solid $green;
+  border-radius: .7em;
+  padding: .4em;
+  background-color: black;
+  opacity: 50%;
+}
+
+.top-btn:hover {
+  opacity: 100%;
+  background-color: $green;
+  color: $dark;
+}
+
+
+// .btm-btn {
+//   font-size: .7em;
+//   margin: .6em;
+//   font-weight: 600;
+//   color: $dark;
+//   cursor: pointer;
+//   border: 1px solid $orange;
+//   border-radius: .7em;
+//   padding: .4em;
+//   background-color: $dark;
+// }
+
 .wrap {
   max-width: 600px;
   margin: 0 auto;
@@ -43,8 +75,8 @@ h1 {
 }
 
 h3 {
-  font-size: 4rem;
-  color: $light;
+  font-size: 6rem;
+  color: $dark;
   margin-right: 10%;
   // margin-bottom: 5rem;
   text-align: right;
@@ -75,8 +107,9 @@ h3 {
         margin-left: 5rem;
     }
     span {
-      color: $green;
-      font-size: 4rem;
+      color: $dark;
+      font-size: 6rem;
+
     }
 }
 
@@ -160,10 +193,10 @@ h3 {
       font-size: 15rem;
   }
   h3 {
-    font-size: 4rem;
+    font-size: 6rem;
     text-align: right;
     margin-right: 4rem;
-    color: $orange;
+    color: $dark;
     margin-left: 30%;
     // text-decoration: line-through
   }

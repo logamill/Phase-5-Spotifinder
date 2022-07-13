@@ -41,18 +41,18 @@ function Browse( user, setUserData ) {
 
     return (
         <>
-        { 
+        {/* { 
         loading ? 
             <div>loading...</div>
-        :
+        : */}
         <>
             <div className='browse-header'>
                 <h2>All users</h2>
-                <h3><span>// match  <FaGratipay style={{ height: "5rem", marginLeft: "2rem", alignContent: "center", justifyContent: "center"}} onClick={findMatch}/></span></h3>
+                <h3><span>// <FaGratipay style={{ height: "5rem", marginLeft: "2rem", alignContent: "center", justifyContent: "center"}} onClick={findMatch}/></span></h3>
             </div>
             <div className='browse-users'>{usersToDisplay}</div>
         </>
-        }
+        {/* } */}
         </>
     )
 }

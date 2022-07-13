@@ -144,7 +144,8 @@ function Compare ( props ) {
     <div className='compare-header'>
         <div className='header-text'>
         <h2>{compare.name}'s Top Music</h2>
-        <h3 className='compare-sub-header'>// + you</h3></div>
+        {/* <h3 className='compare-sub-header'>// + you</h3> */}
+        </div>
         <div className='swap'>
                 <a id='all' className="chosen" onClick={allTime}>all-time</a>
                 <a id='med' onClick={medTime}>~6 months</a>
@@ -185,9 +186,9 @@ function Compare ( props ) {
         </div>
         }
         
-        <h3 id="analytics-header">// analytics</h3>
+        <h3 id="analytics-header">// {compare.name}'s analytics</h3>
         <div className='analytics-container'>
-            <h1>{compare.name}'s Analytics</h1>
+            {/* <h1>{compare.name}'s Analytics</h1> */}
             <div class="bars">
                 <div>
                     <h4>Energy~</h4>
@@ -258,7 +259,7 @@ function Compare ( props ) {
                 </div>
             </div>
         <div className='follow'>
-            <h4>Like what you see? Follow {compare.name} on ...</h4>
+            <h4>Follow {compare.name} on</h4>
                 <a href={compare.url} id='spot-logo'>
                     <img src={spotify} id='spot-logo'></img>
                 </a>

@@ -59,8 +59,7 @@
         font-style: italic;
     }
     .compare-image  {
-        width: 20rem;
-        height: 20rem;
+        height: 25rem;
         border-radius: 100%;
 
     }
@@ -99,7 +98,7 @@
     img {
         border-radius: 300px;
         width: 13%;
-        margin: 1rem
+        margin: 1rem;
     }
 
     h5 {
@@ -140,7 +139,7 @@
     flex-direction: column;
 
     h4 {
-        font-size: 6rem;
+        font-size: 4rem;
         color: $primary;
         padding-bottom: 4rem;
     }
@@ -162,7 +161,7 @@
         padding-left: 4rem;
         width: 5%;
         padding-top: 5rem;
-        font-size: 10rem;
+        font-size: 6rem;
     }
   }
   .fail-span {
@@ -189,15 +188,15 @@
   #artist-header {
     font-size: 5rem;
     color: $primary;
-    padding: 5rem;
+    // padding: 5rem;
   }
   #tracks-header {
     font-size: 5rem;
     color: $orange;
-    padding: 5rem;
+    // padding: 5rem;
   }
 
   #analytics-header {
-    font-size: 5rem;
+    font-size: 4rem;
     color: $green;
   }

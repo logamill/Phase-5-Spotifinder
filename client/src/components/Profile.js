@@ -9,6 +9,13 @@ import CompareCardArtist from '../components/CompareCardArtist'
 
 function Profile({ user }) {
     const history = useHistory(); 
+    const [valenceTop, setValenceTop] = useState(true);
+    const [acousticnessTop, setAcousticnessTop] = useState(true);
+    const [energyTop, setEnergyTop] = useState(true);
+    const [popularTop, setPopularityTop] = useState(true);
+    const [livenessTop, setLivenessTop] = useState(true);
+    const [danceabilityTop, setDanceabilityTop] = useState(true);
+
     const [tracks, setTracks] = useState(user.tracks)
     const [artists, setArtists] = useState(user.artists)
     const [acousticness, setAcousticness] = useState(user.acousticness)
@@ -84,6 +91,9 @@ function Profile({ user }) {
         )
         });
 
+
+    // track details sort logic for barcard display
+
     const energyTracks = [...tracks].sort((a, b) => {
         return (a.energy < b.energy) ? 1 :(b.energy < a.energy) ? -1 : 0})
 
@@ -119,78 +129,137 @@ function Profile({ user }) {
             <div className='analytics-container'>
             {/* <h1> Listening Analytics</h1> */}
             <h2>Visualize your listening habits~</h2>
-
             <div class="bars">
                 <div>
-                    <h4>Energy~</h4>
+                    <h4>Energy~ <span>  <a className="top-btn" onClick={() => setEnergyTop(!energyTop)}>swap</a></span></h4>
                     <p>Typically, energetic tracks feel fast, loud, and noisy.</p>
                     <ProgressBar data={Math.round(energy * 100)} />
-                    {
+                    <div className='top-low-container'>
+                    { energyTop ? 
                         energyTracks.slice(0,3).map((el, i) => {
                             return (
-                            <BarCard key={i} index={i} track={el} number={el.energy} />)
+                            <div className='top'>   
+                                <BarCard key={i} index={i} track={el} number={el.energy}/>
+                            </div>)
                         })
-                    }
+                        :
+                      energyTracks.reverse().slice(0,3).map((el, i) => {
+                            return (
+                            <div className='low'>
+                                <BarCard key={i} index={i} track={el} number={el.energy}/>
+                            </div>)
+                        })}
+                        </div>
                 </div>
                 <div>
-                    <h4>Acousticness~</h4>
+                    <h4>Acousticness~ <span>  <a className="top-btn" onClick={() => setAcousticnessTop(!acousticnessTop)}>swap</a></span></h4>
                     <p>How acousitc a song is.</p>
                     <ProgressBar data={Math.round(acousticness * 100)} />
-                    {
+                    <div className='top-low-container'>
+                    { acousticnessTop ? 
                         acousticnessTracks.slice(0,3).map((el, i) => {
                             return (
-                            <BarCard key={i} index={i} track={el} number={el.acousticness}/>)
+                            <div className='top'>   
+                                <BarCard key={i} index={i} track={el} number={el.acousticness}/>
+                            </div>)
                         })
-                    }
+                        :
+                      acousticnessTracks.reverse().slice(0,3).map((el, i) => {
+                            return (
+                            <div className='low'>
+                                <BarCard key={i} index={i} track={el} number={el.acousticness}/>
+                            </div>)
+                        })}
+                        </div>
                 </div>
                 <div>
-                    <h4>Liveness~</h4>
+                    <h4>Liveness~ <span>  <a className="top-btn" onClick={() => setLivenessTop(!livenessTop)}>swap</a></span></h4>
                     <p>Detects the presence of an audience in the recording.</p>
                     <ProgressBar data={Math.round(liveness * 100)} />
-                    {
+                    <div className='top-low-container'>
+                    { livenessTop ? 
                         livenessTracks.slice(0,3).map((el, i) => {
                             return (
-                            <BarCard key={i} index={i} track={el} number={el.liveness}/>)
+                            <div className='top'>   
+                                <BarCard key={i} index={i} track={el} number={el.liveness}/>
+                            </div>)
                         })
-                    }
+                        :
+                      livenessTracks.reverse().slice(0,3).map((el, i) => {
+                            return (
+                            <div className='low'>
+                                <BarCard key={i} index={i} track={el} number={el.liveness}/>
+                            </div>)
+                        })}
+                        </div>
                 </div>
                 <div>
-                    <h4>Danceability~</h4>
+                    <h4>Danceability~ <span>  <a className="top-btn" onClick={() => setDanceabilityTop(!danceabilityTop)}>swap</a></span></h4>
                     <p>How suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.</p>
                     <ProgressBar data={Math.round(danceability * 100)} />
-                    {
+                    <div className='top-low-container'>
+                    { danceabilityTop ? 
                         danceabilityTracks.slice(0,3).map((el, i) => {
                             return (
-                            <BarCard key={i} index={i} track={el} number={el.danceability}/>)
+                            <div className='top'>   
+                                <BarCard key={i} index={i} track={el} number={el.danceability}/>
+                            </div>)
                         })
-                    }
+                        :
+                      danceabilityTracks.reverse().slice(0,3).map((el, i) => {
+                            return (
+                            <div className='low'>
+                                <BarCard key={i} index={i} track={el} number={el.danceability}/>
+                            </div>)
+                        })}
+                    </div>
                 </div>
                 <div>
-                    <h4>Valence~</h4>
+                    <h4>Valence~ <span>  <a className="top-btn" onClick={() => setValenceTop(!valenceTop)}>swap</a></span></h4>
                     <p>Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).</p>
                     <ProgressBar data={Math.round(valence * 100)} />
-                    {
+                    <div className='top-low-container'>
+                    { valenceTop ? 
                         valenceTracks.slice(0,3).map((el, i) => {
                             return (
-                            <BarCard key={i} index={i} track={el} number={el.valence}/>)
+                            <div className='top'>   
+                                <BarCard key={i} index={i} track={el} number={el.valence}/>
+                            </div>)
                         })
-                    }
+                        :
+                      valenceTracks.reverse().slice(0,3).map((el, i) => {
+                            return (
+                            <div className='low'>
+                                <BarCard key={i} index={i} track={el} number={el.valence}/>
+                            </div>)
+                        })}
+                        </div>
                 </div>
                 <div>
-                    <h4>Popularity~</h4>
+                    <h4>Popularity~ <span>  <a className="top-btn" onClick={() => setPopularityTop(!popularTop)}>swap</a></span></h4>
                     <p>Higher popularity represents the more popular a song is.</p>
                     <ProgressBar data={popularity} />
-                    {
+                    <div className='top-low-container'>
+                    { popularTop ? 
                         popularityTracks.slice(0,3).map((el, i) => {
                             return (
-                            <BarCard key={i} index={i} track={el} number={el.popularity / 100}/>)
+                            <div className='top'>   
+                                <BarCard key={i} index={i} track={el} number={el.popularity / 100}/>
+                            </div>)
                         })
-                    }
+                        :
+                      popularityTracks.reverse().slice(0,3).map((el, i) => {
+                            return (
+                            <div className='low'>
+                                <BarCard key={i} index={i} track={el} number={el.popularity / 100}/>
+                            </div>)
+                        })}
+                        </div>
                 </div>            
                 </div>
             </div>
             </div>
-            <h3 id="top-songs">// tracks</h3>
+            <h3 id="top-songs">// top 20 tracks</h3>
 
             <div className='carousel'>
                 <TrackCarousel data={tracks}/>
@@ -213,7 +282,7 @@ function Profile({ user }) {
             </div> */}
             
             <div className='artist-header'>
-            <h3>// artists </h3>
+            <h3>// top 20 artists </h3>
             </div>
                  <div className='carousel'>
                     <TrackCarousel data={artists}/>
