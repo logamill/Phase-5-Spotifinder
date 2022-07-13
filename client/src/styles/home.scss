@@ -15,51 +15,11 @@ h5 {
     font-style: italic;
 }
 
-
-.particle {
-	position: absolute;
- 	border-radius: 50%;
+.home-container {
+    display: flex;
 }
 
-@for $i from 1 through 15 {
-	@keyframes particle-animation-#{$i} {
-		100% {
-			transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
-		}
-	}
-	
-	.particle:nth-child(#{$i}){
-		animation: particle-animation-#{$i} 60s infinite;
-		$size: random(5) + 5 + px;
-		opacity: random(100)/100;
-		height: $size;
-		width: $size;
-        z-index: 10;
-		animation-delay: -$i * .2s;
-		transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
-		// background: hsl(random(300), 70%, 50%);
-        background: $green;
-	}
-}
-
-
-@for $j from 15 through 30 {
-	@keyframes particle-animation-#{$j} {
-		100% {
-			transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
-		}
-	}
-	
-	.particle:nth-child(#{$j}){
-		animation: particle-animation-#{$j} 60s infinite;
-		$size: random(5) + 5 + px;
-		opacity: random(100)/100;
-		height: $size;
-		width: $size;
-        z-index: 10;
-		animation-delay: -$j * .2s;
-		transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
-		// background: hsl(random(300), 70%, 50%);
-        background: $orange;
-	}
+.image-container {
+    display: flex;
+    flex-direction: column;
 }

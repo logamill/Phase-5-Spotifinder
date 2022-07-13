@@ -5,7 +5,6 @@ function MatchBar( props ) {
     const [style, setStyle] = useState({})
 
     const { data } = props 
-    useEffect(() => {
         setTimeout(() => {
             const newStyle = {
                 opacity: 1,
@@ -13,16 +12,16 @@ function MatchBar( props ) {
             }
             setStyle(newStyle)
         }, 1000)
-    }, [])
+   
 
     return (
-        <div>
+
         <div className='match'>
             <div className='match-bar' style={style} >
              </div>
              <div className='match-percent'>{data}%</div>
         </div>
-        </div>
+
     )
 };
 

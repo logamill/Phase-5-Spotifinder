@@ -27,6 +27,7 @@ body {
   a:hover {
     opacity: 100%;
   }
+
   .chosen {
     opacity: 100%;
   }
@@ -56,12 +57,19 @@ body {
   font-size: .7em;
   margin: .6em;
   font-weight: 600;
-  color: $orange;
+  color: $green;
   cursor: pointer;
   border: 1px solid $orange;
   border-radius: .7em;
   padding: .4em;
-  background-color: $dark;
+  background-color: black;
+  opacity: 50%;
+}
+
+.btm-btn:hover {
+  opacity: 100%;
+  background-color: $orange;
+  color: $dark;
 }
 
 .wrap {
@@ -75,7 +83,7 @@ h1 {
 }
 
 h3 {
-  font-size: 6rem;
+  font-size: 5rem;
   color: $dark;
   margin-right: 10%;
   // margin-bottom: 5rem;
@@ -92,7 +100,7 @@ h3 {
 }
 
 #top-songs {
-  margin-bottom: 6rem;
+  margin-bottom: 5rem;
 }
 
 
@@ -102,13 +110,13 @@ h3 {
     flex-direction: column;
 
     h2 {
-        font-size: 6rem;
+        font-size: 5rem;
         margin-top: 2rem;
         margin-left: 5rem;
     }
     span {
       color: $dark;
-      font-size: 6rem;
+      font-size: 5rem;
 
     }
 }
@@ -195,11 +203,10 @@ h3 {
       font-size: 15rem;
   }
   h3 {
-    font-size: 6rem;
+    font-size: 5rem;
     text-align: right;
-    margin-right: 4rem;
+    margin-right: 10%;
     color: $dark;
-    margin-left: 30%;
     // text-decoration: line-through
   }
 }

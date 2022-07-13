@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import '../styles/signup.scss';
 import Errors from "./Errors";
+import Particles from "./Particles";
 
 export default function Login({ onLogin }) {
   const history = useHistory();
@@ -28,8 +29,9 @@ export default function Login({ onLogin }) {
 
   return (
     <div className="login">
+      <Particles />
+      <h2 className="modal-title">// login</h2>
       <form className="form" id="signup-form" onSubmit={handleLogin}>
-        <h2 className="modal-title"></h2>
         <div className="form__group">
           <input
             type="text"

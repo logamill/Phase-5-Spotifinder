@@ -193,37 +193,37 @@ class User < ApplicationRecord
 
 
 
-    def instrumentalness 
-        instrumentalness = []
+    def liveness 
+        liveness = []
         if self.tracks.exists?
             self.tracks.map do |t| 
-                instrumentalness << t.instrumentalness
+                liveness << t.liveness
             end
-            return instrumentalness.sum / instrumentalness.length
+            return liveness.sum / liveness.length
         end
         return 0 
     end
 
 
-    def instrumentalness_med
-        instrumentalness = []
+    def liveness_med
+        liveness = []
         if self.med_tracks.exists?
             self.med_tracks.map do |t| 
-                instrumentalness << t.instrumentalness
+                liveness << t.liveness
             end
-            return instrumentalness.sum / instrumentalness.length
+            return liveness.sum / liveness.length
         end
         return 0 
     end
 
 
-    def instrumentalness_short
-        instrumentalness = []
+    def liveness_short
+        liveness = []
         if self.short_tracks.exists?
             self.short_tracks.map do |t| 
-                instrumentalness << t.instrumentalness
+                liveness << t.liveness
             end
-            return instrumentalness.sum / instrumentalness.length
+            return liveness.sum / liveness.length
         end
         return 0 
     end
@@ -276,17 +276,37 @@ class User < ApplicationRecord
     def taste
         taste = 0
         if self.tracks.exists?
-            total = (((self.valence + self.acousticness + self.danceability + self.energy + self.instrumentalness) / 5) * 100)
-            taste = (total + (self.popularity - 10)) / 2
+            total = ((((self.valence * 7)+ self.acousticness + self.danceability + self.energy + (self.liveness / 2)) / 6) * 100)
+            taste = (total + (self.popularity - 30)) / 2
             return taste 
         end
         return 0
     end
 
+    def med_taste
+        taste = 0 
+        if self.med_tracks.exists?
+            total = ((((self.valence_med * 7)+ self.acousticness_med + self.danceability_med + self.energy_med + (self.liveness_med / 2)) / 6) * 100)
+            taste = (total + (self.popularity_med - 30)) / 2
+            return taste
+        end
+        return 0 
+    end
+
+    def short_taste
+        taste = 0 
+        if self.short_tracks.exists?
+            total = ((((self.valence_short * 7)+ self.acousticness_short + self.danceability_short + self.energy_short + (self.liveness_short / 2)) / 6) * 100)
+            taste = (total + (self.popularity_short - 30)) / 2
+            return taste
+        end
+        return 0 
+    end
+
     def match 
         if self.tracks.exists?
             list = User.all.sort_by { |user| user.taste }
-            index = list.find_index(self) 
+            index = list.find_index(self)
             index_high = (index + 1)
             index_low = (index - 1)
         
@@ -294,13 +314,14 @@ class User < ApplicationRecord
                 lower = (list[index].taste - list[index_low].taste)
                 higher = (list[index_high].taste - list[index].taste)
                 return lower > higher ? list[index_high] : list[index_low]
-            elsif (!list[index_low])
-                return list[index_high]
             elsif (!list[index_high])
                 return list[index_low]
+            elsif (!list[index_low])
+                return list[index_high]
             else 
                 return nil 
             end
         end
     end
+
 end

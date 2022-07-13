@@ -15,10 +15,9 @@ export default function SpotifyLogin({ user }) {
   function handleAuth() {
     setLoadingData(true);
     setTimeout(() => {
-      // getSpotifyData();
       setLoadingData(false);
       window.location.reload();
-    }, 13000);
+    }, 15000);
     };
 
   return (

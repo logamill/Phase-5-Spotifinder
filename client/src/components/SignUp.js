@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Errors from "./Errors";
+import Particles from "./Particles";
 
 export default function Signup({ onLogin }) {
   let history = useHistory();
@@ -28,7 +29,8 @@ export default function Signup({ onLogin }) {
 
   return (
     <div className="login">
-      <h2 className="modal-title"></h2>
+      <Particles />
+      <h2 className="modal-title"> // sign up</h2>
       <form
         className="form sign-up-form"
         id="signup-form"

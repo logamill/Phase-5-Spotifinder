@@ -17,8 +17,6 @@ function NavBar({ user, setUser }) {
         height: undefined,
     });
 
-    console.log(location.pathname)
-
     useEffect(() => {
         const handleResize = () => {
             setSize({

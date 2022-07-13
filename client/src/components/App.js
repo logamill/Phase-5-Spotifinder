@@ -38,8 +38,6 @@ function App() {
     setTracks(user.tracks)
   };
 
-  console.log(user)
-
   return (
     <>
     { loading ? 
@@ -70,9 +68,9 @@ function App() {
       <Route exact path="/signup">
         <Signup onLogin={onLogin} />
       </Route>
-      <Route exact path="/auth/spotify">
+      {/* <Route exact path="/auth/spotify">
         <Profile user={user} tracks={tracks} setTracks={setTracks} />
-      </Route>
+      </Route> */}
       <Route exact path="/declined">
         <Declined user={user} />
       </Route>

@@ -52,15 +52,16 @@
         align-items: center;
         display: flex;
         flex-direction: column;
-        font-size: 2rem;
+        font-size: 2.5rem;
         margin-bottom: 1rem;
-        color: $primary;
-        text-decoration: line-through;
+        color: $light;
+        // text-decoration: line-through;
         font-style: italic;
     }
     .compare-image  {
-        height: 25rem;
-        border-radius: 100%;
+        height: 30rem;
+        width: 30rem;
+        border-radius: 50%;
 
     }
 }
@@ -96,7 +97,7 @@
     justify-content: center;
 
     img {
-        border-radius: 300px;
+        border-radius: 50%;
         width: 13%;
         margin: 1rem;
     }
@@ -112,26 +113,51 @@
 }
 .analytics-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
 
-    h1 {
-        font-weight: 500;
-        color: $light;
-      }
+    // h1 {
+    //     font-weight: 500;
+    //     color: $light;
+    //   }
       
-      h3 {
-        font-size: 10rem;
-        color: $primary;
-        margin-right: 10%;
-        margin-bottom: 5rem;
-        text-align: right;
-        // text-decoration: line-through
-      }
+    //   h3 {
+    //     font-size: 10rem;
+    //     color: $primary;
+    //     margin-right: 10%;
+    //     margin-bottom: 5rem;
+    //     text-align: right;
+    //     // text-decoration: line-through
+    //   }
       
-    h4 {
-        font-size: 2.5rem;
-        padding: 1rem;
-    }
+    // h4 {
+    //     font-size: 2.5rem;
+    //     padding: 1rem;
+    // }
 }
+.bars {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    
+    > div {
+      margin: 2.5rem;
+      width: 35%;
+      display: inline;
+  
+      p {
+        font-size: 1rem
+      }
+      h4 {
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
 .follow {
     display: flex;
     justify-content: center;
@@ -192,11 +218,51 @@
   }
   #tracks-header {
     font-size: 5rem;
-    color: $orange;
+    // color: $dark;
     // padding: 5rem;
   }
 
   #analytics-header {
     font-size: 4rem;
+    // color: $green;
+  }
+
+
+
+.top-btn {
+    font-size: .7em;
+    margin: .6em;
+    font-weight: 600;
     color: $green;
+    cursor: pointer;
+    border: 1px solid $green;
+    border-radius: .7em;
+    padding: .4em;
+    background-color: black;
+    opacity: 50%;
+  }
+  
+  .top-btn:hover {
+    opacity: 100%;
+    background-color: $green;
+    color: $dark;
+  }
+  
+  
+  .btm-btn {
+    font-size: .7em;
+    margin: .6em;
+    font-weight: 600;
+    color: $orange;
+    cursor: pointer;
+    border: 1px solid $orange;
+    border-radius: .7em;
+    padding: .4em;
+    background-color: black;
+  }
+  
+  .btm-btn:hover {
+    opacity: 100%;
+    background-color: $orange;
+    color: $dark;
   }

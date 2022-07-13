@@ -17,6 +17,15 @@ function Compare ( props ) {
 
     const [loading, setLoading] = useState(true)
     const [compare, setCompare] = useState([])
+    const [valenceTop, setValenceTop] = useState(true);
+    const [acousticnessTop, setAcousticnessTop] = useState(true);
+    const [energyTop, setEnergyTop] = useState(true);
+    const [popularTop, setPopularityTop] = useState(true);
+    const [livenessTop, setLivenessTop] = useState(true);
+    const [danceabilityTop, setDanceabilityTop] = useState(true);
+
+    const [match, setMatch] = useState(compare.taste)
+    const [userMatch, setUserMatch] = useState(user.taste)
 
     const [tracks, setTracks] = useState([])
     const [artists, setArtists] = useState([])
@@ -31,25 +40,17 @@ function Compare ( props ) {
         fetch(`/users/${id}`)
         .then(res => res.json())
         .then(data => {
-            setCompare(data)
-            setLoading(false)
-            setTracks(data.tracks)
-            setArtists(data.artists)
-            setAcousticness(data.acousticness)
-            setEnergy(data.energy)
-            setValence(data.valence)
-            setDanceability(data.danceability)
-            setPopularity(data.popularity)
+            setCompare(data);
+            setLoading(false);
+            setTracks(data.tracks);
+            setArtists(data.artists);
+            setAcousticness(data.acousticness);
+            setEnergy(data.energy);
+            setValence(data.valence);
+            setDanceability(data.danceability);
+            setPopularity(data.popularity);
             setLiveness(data.liveness);
-        })
-    },[])
-
-    useEffect(() => {
-        fetch(`/users/${id}`)
-        .then(res => res.json())
-        .then(data => {
-            setCompare(data)
-            setLoading(false)
+            setMatch(data.taste)
         })
     },[])
 
@@ -62,6 +63,8 @@ function Compare ( props ) {
         setPopularity(compare.popularity)
         setLiveness(compare.liveness)
         setValence(compare.valence)
+        setMatch(compare.taste)
+        setUserMatch(user.taste)
 
         document.getElementById('short').classList.remove('chosen')
         document.getElementById('med').classList.remove('chosen')
@@ -71,6 +74,8 @@ function Compare ( props ) {
     function medTime() {
         setTracks(compare.med_tracks)
         setArtists(compare.med_artists)
+        setMatch(compare.med_taste)
+        setUserMatch(user.med_taste)
 
         setAcousticness(compare.acousticness_med)
         setEnergy(compare.energy_med)
@@ -85,8 +90,10 @@ function Compare ( props ) {
     }
 
     function shortTime() {
-        setTracks(compare.short_tracks)
-        setArtists(compare.short_artists)
+        setTracks(compare.short_tracks);
+        setArtists(compare.short_artists);
+        setMatch(compare.short_taste);
+        setUserMatch(user.short_taste);
 
         setAcousticness(compare.acousticness_short)
         setEnergy(compare.energy_short)
@@ -99,7 +106,6 @@ function Compare ( props ) {
         document.getElementById('med').classList.remove('chosen')
         document.getElementById('all').classList.remove('chosen')
     }
-
 
     // const artistsToDisplay = artists.map((el, i) => {
     //     return (
@@ -131,7 +137,7 @@ function Compare ( props ) {
         return (a.acousticness < b.acousticness) ? 1 :(b.acousticness < a.acousticness) ? -1 : 0})
 
 
-    let compareData = Math.round(100 - ((Math.max(user.taste, compare.taste) - Math.min(user.taste, compare.taste)) * 5))
+    let compareData = Math.abs(Math.round(100 - ((Math.max(match, userMatch) - Math.min(match, userMatch)) * 3)))
     // let compareData = 100 - Math.round(((user.taste + compare.taste) / 2))
     return (
         <>
@@ -154,14 +160,14 @@ function Compare ( props ) {
         <div className='match-conatiner'>
             <div className='compare-container'>
                 <div className='self-compare'>
-                    <h6>// {compare.name}</h6>
+                    <h6>{compare.name}</h6>
                     <img className="compare-image" src={compare.image} />
                 </div>
                 <div className='compare-bar'>
                     <MatchBar data={compareData} />
                 </div>
                 <div className='user-compare'>
-                    <h6>// {user.name}</h6>
+                    <h6>{user.name}</h6>
                     <img className="compare-image" src={user.image} />
                 </div>
             </div>
@@ -189,7 +195,11 @@ function Compare ( props ) {
             {/* <h1>{compare.name}'s Analytics</h1> */}
             <div class="bars">
                 <div>
-                    <h4>Energy~</h4>
+                    <h4>Energy~<span>
+                    {energyTop ? 
+                        <a className="top-btn" onClick={() => setEnergyTop(!energyTop)}>high</a> :
+                        <a className="btm-btn" onClick={() => setEnergyTop(!energyTop)}>low</a>}
+                        </span></h4>
                     <p>Typically, energetic tracks feel fast, loud, and noisy.</p>
                     <ProgressBar data={Math.round(compare.energy * 100)} />
                     {
@@ -200,7 +210,11 @@ function Compare ( props ) {
                     }
                 </div>
                 <div>
-                    <h4>Acousticness~</h4>
+                    <h4>Acousticness~<span>
+                    {acousticnessTop ? 
+                        <a className="top-btn" onClick={() => setAcousticnessTop(!acousticnessTop)}>high</a> :
+                        <a className="btm-btn" onClick={() => setAcousticnessTop(!acousticnessTop)}>low</a>}
+                        </span></h4>
                     <p>How acousitc a song is.</p>
                     <ProgressBar data={Math.round(compare.acousticness * 100)} />
                     {
@@ -211,7 +225,11 @@ function Compare ( props ) {
                     }
                 </div>
                 <div>
-                    <h4>Liveness~</h4>
+                    <h4>Liveness~ <span>
+                    {livenessTop ? 
+                        <a className="top-btn" onClick={() => setLivenessTop(!livenessTop)}>high</a> :
+                        <a className="btm-btn" onClick={() => setLivenessTop(!livenessTop)}>low</a>}
+                        </span></h4>
                     <p>Detects the presence of an audience in the recording.</p>
                     <ProgressBar data={Math.round(compare.liveness * 100)} />
                     {
@@ -222,7 +240,11 @@ function Compare ( props ) {
                     }
                 </div>
                 <div>
-                    <h4>Danceability~</h4>
+                    <h4>Danceability~ <span>
+                    {danceabilityTop ? 
+                        <a className="top-btn" onClick={() => setDanceabilityTop(!danceabilityTop)}>high</a> :
+                        <a className="btm-btn" onClick={() => setDanceabilityTop(!danceabilityTop)}>low</a>}
+                        </span></h4>
                     <p>How suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.</p>
                     <ProgressBar data={Math.round(compare.danceability * 100)} />
                     {
@@ -233,7 +255,11 @@ function Compare ( props ) {
                     }
                 </div>
                 <div>
-                    <h4>Valence~</h4>
+                    <h4>Valence~<span>
+                    {valenceTop ? 
+                        <a className="top-btn" onClick={() => setValenceTop(!valenceTop)}>high</a> :
+                        <a className="btm-btn" onClick={() => setValenceTop(!valenceTop)}>low</a>}
+                        </span></h4>
                     <p>Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).</p>
                     <ProgressBar data={Math.round(compare.valence * 100)} />
                     {
@@ -244,7 +270,11 @@ function Compare ( props ) {
                     }
                 </div>
                 <div>
-                    <h4>Popularity~</h4>
+                    <h4>Popularity~<span>
+                    {popularTop ? 
+                        <a className="top-btn" onClick={() => setPopularityTop(!popularTop)}>high</a> :
+                        <a className="btm-btn" onClick={() => setPopularityTop(!popularTop)}>low</a>}
+                        </span></h4>
                     <p>Higher popularity represents the more popular a song is.</p>
                     <ProgressBar data={compare.popularity} />
                     {

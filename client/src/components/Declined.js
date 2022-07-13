@@ -4,7 +4,6 @@ import spotify from '../spotifylogo.png'
 
 function Declined({ user }) {
 
-    console.log(user)
     return (
 
         <div className='declined-container'>

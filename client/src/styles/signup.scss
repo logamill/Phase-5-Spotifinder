@@ -3,6 +3,13 @@
 .login {
     height: 95vh;
   }
+
+  .modal-title {
+    font-size: 5rem;
+    text-align: right;
+    margin-right: 10%;
+    color: $dark;
+  }
   
   #signup-form {
     padding: 10rem 10rem;

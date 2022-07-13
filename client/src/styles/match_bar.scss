@@ -10,12 +10,11 @@
 
 .match-bar {
 	background: linear-gradient(to top, $green, rgb(42, 208, 42));
-	box-shadow: 0 3px 3px -5px #f2f270, 0 2px 5px #21671c;
+	// box-shadow: 0 3px 3px -5px #f2f270, 0 2px 5px #21671c;
 	border-radius: 20px;
 	color: #fff;
 	display: flex;
     font-weight: 400;
-    transform: rotate(180deg);
 	align-items: flex-start;
 	justify-content: center;
 	height: 0%;

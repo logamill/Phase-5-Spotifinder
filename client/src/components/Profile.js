@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom'
 import ProgressBar from './ProgressBar';
 import TrackCarousel from './TrackCarousel';
 import CompareCardArtist from '../components/CompareCardArtist'
+import Particles from './Particles';
 
 function Profile({ user }) {
     const history = useHistory(); 
@@ -78,7 +79,6 @@ function Profile({ user }) {
         document.getElementById('med').classList.remove('chosen')
         document.getElementById('all').classList.remove('chosen')
     }
-
 
     const artistsToDisplay = artists.map((el, i) => {
         return (

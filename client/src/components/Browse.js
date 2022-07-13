@@ -10,12 +10,13 @@ function Browse( user, setUserData ) {
     const [compareUser, setCompareUser] = useState([]);
     const [loading, setLoading] = useState(true);
     const history = useHistory();
+
+    console.log(users)
     
     useEffect(() => {
         fetch('/users')
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setUsers(data)
                 setLoading(false)
             })

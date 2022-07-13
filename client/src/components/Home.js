@@ -4,50 +4,22 @@ import styled from "styled-components";
 import '../styles/home.scss'
 // import spotify from '../spotify.gif'
 import spotifinder from '../logo.gif'
+import Particles from './Particles';
 
 function Home({user}) {
     const [tracks, setTracks] = useState([])
 
         return (
-        <div>
-            <div id="particle-container">
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-	<div class="particle"></div>
-</div>
-        <Container>
-            <img 
-                src={spotifinder}
-                alt='spotify'
-                id='spotify-gif'/>
-            <h5>Find what sparks you.</h5>
+        <div className='home-container'>
+            <Particles />
+        <Container style={{height: '75vh'}}> 
+            <div className='image-container'>
+                <img 
+                    src={spotifinder}
+                    alt='spotify'
+                    id='spotify-gif'/>
+                <h5>Find what sparks you.</h5>
+            </div>
         </Container>
         </div>
   );
