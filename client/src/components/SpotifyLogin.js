@@ -37,7 +37,7 @@ export default function SpotifyLogin({ user }) {
           </span>
           <span style={{ color: "white"}}>In order to get your advanced music data - Spotifinder™ needs to load a lot of data. Please connect with the button below!</span>
           <form className="auth-form" method="post">
-            <a className="auth-link" href="https://spotifinder-p5.herokuapp.com/auth/spotify" onClick={handleAuth}>Sign in with Spotify</a>
+            <a className="auth-link" href="/auth/spotify" onClick={handleAuth}>Sign in with Spotify</a>
           </form>
           </div>
       </Container>
