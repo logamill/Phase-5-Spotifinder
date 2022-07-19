@@ -3,14 +3,20 @@
 @import "~slick-carousel/slick/slick-theme.css";
 
 .track-carousel-container {
-    width: 75%;
-    margin: 10rem auto;
+    // width: 75%;
+    margin: 10em auto;
+    max-width: 100%;
 }
 
 .slide img{ 
     width: 25rem;
     height: 25rem;
     margin: 0 auto;
+    @media only screen and (max-width: 1024px) {
+          width: 13em;
+          height: auto;
+          margin: 0;
+    }
 }
 
 .slide {
@@ -19,12 +25,27 @@
     opacity: .5;
     z-index: 1;
     margin-bottom: 5rem;
+    @media only screen and (max-width: 1024px) {
+        transform: scale(0);
+        transition: transform 300ms;
+        opacity: .5;
+        z-index: 1;
+
+        margin-bottom: 5rem;
+      }
 }
 
 .activeSlide {
     transform: scale(1.1);
     opacity: 100%;
     z-index: 100;
+    @media only screen and (max-width: 1024px) {
+        transform: scale(1);
+        transition: transform 300ms;
+        opacity: .5;
+        z-index: 1;
+        margin-bottom: 5rem;
+      }
 }
 
 .arrow {

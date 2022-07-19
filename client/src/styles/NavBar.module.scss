@@ -1,9 +1,8 @@
 @import "./../styles/variables.scss";
 
 .logo {
-    height: 13rem;
+    height: 5em;
     width: auto;
-    
 }
 
 .header {
@@ -33,6 +32,7 @@
             font-weight: bold;
             text-decoration: none;
             color: $light;
+            height: 5px;
         }
 
         &__nav {

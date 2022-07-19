@@ -4,8 +4,13 @@
 	background-color: $dark;
 	border-radius: 20px;
 	position: relative;
-	height: 30rem;
-	width: 3rem;
+	height: 20em;
+	width: 2em;
+    @media only screen and (max-width: 1024px) {
+        height: 10em;
+        width: 1.6em;
+        position: relative;
+    }
 }
 
 .match-bar {

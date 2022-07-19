@@ -10,7 +10,10 @@
     align-items: center;
     opacity: 70%;
     font-size: 1.5rem;
-
+    @media only screen and (max-width: 1024px) {
+        margin-left: 0;
+        width: 100%;
+    }
     &:hover {
         opacity: 100%;
         cursor: pointer;
