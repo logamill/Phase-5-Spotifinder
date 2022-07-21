@@ -3,13 +3,13 @@
 #spotify-gif {
     height: auto;
     width: 45%;
-    opacity: 70%;
+    // opacity: 70%;
     // transform: scale(1.1);
-    // z-index: 200;
+    z-index: 20;
     @media only screen and (max-width: 920px) {
         height: auto;
         width: 100%;
-        z-index: 1;
+        z-index: 20;
     }
 }
 
