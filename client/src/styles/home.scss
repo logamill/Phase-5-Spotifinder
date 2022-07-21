@@ -1,12 +1,11 @@
 @import './variables.scss';
 
 #spotify-gif {
-    height: 30rem;
-    width: 55rem;
+    height: auto;
+    width: 45%;
     opacity: 70%;
     // transform: scale(1.1);
     // z-index: 200;
-    transition: ease-in all 2s;
     @media only screen and (max-width: 920px) {
         height: auto;
         width: 100%;
@@ -18,8 +17,11 @@ h5 {
     font-size: 2rem;
     font-weight: 300;
     font-style: italic;
+    text-align: center;
     @media only screen and (max-width: 920px) {    
-        width: 90%;    
+        width: 90%;
+        font-size: 1.5em;
+        text-align: center;    
     }
 }
 

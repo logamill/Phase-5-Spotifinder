@@ -13,7 +13,7 @@ function NavBar({ user, setUser }) {
     const history = useHistory();
     const [menuOpen, setMenuOpen] = useState(false);
     const [size, setSize] = useState({
-        width: undefined,
+        width: window.innerWidth,
         height: undefined,
     });
 
@@ -30,8 +30,8 @@ function NavBar({ user, setUser }) {
     }, []);
 
     useEffect(() => {
-        if (size.width > 768 && menuOpen) {
-            setMenuOpen(false);
+        if (size.width > 1024 && menuOpen) {
+            setMenuOpen(!menuOpen);
         }
     }, [size.width, menuOpen]);
 
@@ -59,7 +59,7 @@ function NavBar({ user, setUser }) {
                 </Link>
                 <nav
                     className={`${classes.header__content__nav} ${
-                        menuOpen && size.width < 768 ? classes.isMenu : ""
+                        menuOpen && size.width < 1024 ? classes.isMenu : ""
                     }`}
                 >
                     {

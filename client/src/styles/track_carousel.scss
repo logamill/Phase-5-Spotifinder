@@ -4,7 +4,7 @@
 
 .track-carousel-container {
     // width: 75%;
-    margin: 10em auto;
+    margin: 5em auto;
     max-width: 100%;
 }
 
@@ -13,7 +13,7 @@
     height: 25rem;
     margin: 0 auto;
     @media only screen and (max-width: 1024px) {
-          width: 13em;
+          width: 10em;
           height: auto;
           margin: 0;
     }
@@ -30,7 +30,6 @@
         transition: transform 300ms;
         opacity: .5;
         z-index: 1;
-
         margin-bottom: 5rem;
       }
 }
@@ -42,7 +41,7 @@
     @media only screen and (max-width: 1024px) {
         transform: scale(1);
         transition: transform 300ms;
-        opacity: .5;
+        opacity: 100%;
         z-index: 1;
         margin-bottom: 5rem;
       }

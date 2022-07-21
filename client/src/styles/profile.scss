@@ -15,7 +15,12 @@ body {
 }
 
 .swap {
+  margin-left: 8%;
   max-width: 100%;
+  @media only screen and (max-width: 920px) {
+    max-width: 100%;
+    margin-left: 0%;
+  }
 
   // display: inline-flex;
 
@@ -231,7 +236,7 @@ h3 {
 }
 
 .carousel {
-  height: 25rem;
+  // height: 25rem;
   width: auto;
   margin-bottom: 2em;
 }
