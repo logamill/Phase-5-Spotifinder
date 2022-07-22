@@ -19,7 +19,6 @@ export default function Signup({ onLogin }) {
     });
     if (req.ok) {
       let user = await req.json();
-      console.log(user)
       onLogin(user);
       history.push(`/spotify/login`)
     }else{

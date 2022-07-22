@@ -9,7 +9,7 @@ class User < ApplicationRecord
     has_many :short_artists, dependent: :destroy 
     
 
-    validates :spotify_id, uniqueness: true 
+    # validates :spotify_id, uniqueness: true 
 
 
 

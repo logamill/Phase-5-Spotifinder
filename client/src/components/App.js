@@ -37,6 +37,7 @@ function App() {
     setUser(user);
     setTracks(user.tracks)
   };
+  console.log(user)
 
   return (
     <>
