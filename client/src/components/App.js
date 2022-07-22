@@ -62,9 +62,9 @@ function App() {
       <Route exact path="/browse">
         <Browse user={user} />
       </Route>
-      {/* <Route exact path="/auth/spotify/callback">
+      <Route exact path="/auth/spotify/callback">
         <Profile user={user} tracks={tracks} setTracks={setTracks} />
-      </Route> */}
+      </Route>
       <Route exact path="/signup">
         <Signup onLogin={onLogin} />
       </Route>
