@@ -202,12 +202,20 @@ function Compare ( props ) {
                         </span></h4>
                     <p>Typically, energetic tracks feel fast, loud, and noisy.</p>
                     <ProgressBar data={Math.round(compare.energy * 100)} />
-                    {
+                    { energyTop ? 
                         energyTracks.slice(0,3).map((el, i) => {
                             return (
-                            <BarCard key={i} index={i} track={el} number={el.energy} />)
+                            <div className='top'>   
+                                <BarCard key={i} index={i} track={el} number={el.energy}/>
+                            </div>)
                         })
-                    }
+                        :
+                      energyTracks.reverse().slice(0,3).map((el, i) => {
+                            return (
+                            <div className='low'>
+                                <BarCard key={i} index={i} track={el} number={el.energy}/>
+                            </div>)
+                        })}
                 </div>
                 <div>
                     <h4>Acousticness~<span>
@@ -217,12 +225,20 @@ function Compare ( props ) {
                         </span></h4>
                     <p>How acousitc a song is.</p>
                     <ProgressBar data={Math.round(compare.acousticness * 100)} />
-                    {
+                    { acousticnessTop ? 
                         acousticnessTracks.slice(0,3).map((el, i) => {
                             return (
-                            <BarCard key={i} index={i} track={el} number={el.acousticness}/>)
+                            <div className='top'>   
+                                <BarCard key={i} index={i} track={el} number={el.acousticness}/>
+                            </div>)
                         })
-                    }
+                        :
+                      acousticnessTracks.reverse().slice(0,3).map((el, i) => {
+                            return (
+                            <div className='low'>
+                                <BarCard key={i} index={i} track={el} number={el.acousticness}/>
+                            </div>)
+                        })}
                 </div>
                 <div>
                     <h4>Liveness~ <span>
@@ -232,12 +248,20 @@ function Compare ( props ) {
                         </span></h4>
                     <p>Detects the presence of an audience in the recording.</p>
                     <ProgressBar data={Math.round(compare.liveness * 100)} />
-                    {
+                    { livenessTop ? 
                         livenessTracks.slice(0,3).map((el, i) => {
                             return (
-                            <BarCard key={i} index={i} track={el} number={el.liveness}/>)
+                            <div className='top'>   
+                                <BarCard key={i} index={i} track={el} number={el.liveness}/>
+                            </div>)
                         })
-                    }
+                        :
+                      livenessTracks.reverse().slice(0,3).map((el, i) => {
+                            return (
+                            <div className='low'>
+                                <BarCard key={i} index={i} track={el} number={el.liveness}/>
+                            </div>)
+                        })}
                 </div>
                 <div>
                     <h4>Danceability~ <span>
@@ -247,12 +271,20 @@ function Compare ( props ) {
                         </span></h4>
                     <p>How suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.</p>
                     <ProgressBar data={Math.round(compare.danceability * 100)} />
-                    {
+                    { danceabilityTop ? 
                         danceabilityTracks.slice(0,3).map((el, i) => {
                             return (
-                            <BarCard key={i} index={i} track={el} number={el.danceability}/>)
+                            <div className='top'>   
+                                <BarCard key={i} index={i} track={el} number={el.danceability}/>
+                            </div>)
                         })
-                    }
+                        :
+                      danceabilityTracks.reverse().slice(0,3).map((el, i) => {
+                            return (
+                            <div className='low'>
+                                <BarCard key={i} index={i} track={el} number={el.danceability}/>
+                            </div>)
+                        })}
                 </div>
                 <div>
                     <h4>Valence~<span>
@@ -262,12 +294,20 @@ function Compare ( props ) {
                         </span></h4>
                     <p>Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).</p>
                     <ProgressBar data={Math.round(compare.valence * 100)} />
-                    {
+                    { valenceTop ? 
                         valenceTracks.slice(0,3).map((el, i) => {
                             return (
-                            <BarCard key={i} index={i} track={el} number={el.valence}/>)
+                            <div className='top'>   
+                                <BarCard key={i} index={i} track={el} number={el.valence}/>
+                            </div>)
                         })
-                    }
+                        :
+                      valenceTracks.reverse().slice(0,3).map((el, i) => {
+                            return (
+                            <div className='low'>
+                                <BarCard key={i} index={i} track={el} number={el.valence}/>
+                            </div>)
+                        })}
                 </div>
                 <div>
                     <h4>Popularity~<span>
