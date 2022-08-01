@@ -12,6 +12,7 @@ export default function Signup({ onLogin }) {
     let form = new FormData(document.querySelector(`#signup-form`));
     if (e.target['password'].value !== e.target['confirmed-password'].value) {
       setErrors(["Passwords do not match"])
+      return 
     }
     let req = await fetch(`/signup`, {
       method: `POST`,

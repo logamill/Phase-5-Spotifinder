@@ -26,6 +26,8 @@ function App() {
     });
   }, []);
 
+  console.log(user)
+
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -62,15 +64,15 @@ function App() {
       <Route exact path="/browse">
         <Browse user={user} />
       </Route>
-      <Route exact path="/auth/spotify/callback">
+      {/* <Route exact path="/auth/spotify/callback">
         <Profile user={user} tracks={tracks} setTracks={setTracks} />
-      </Route>
+      </Route> */}
       <Route exact path="/signup">
         <Signup onLogin={onLogin} />
       </Route>
-      {/* <Route exact path="/auth/spotify">
+      <Route exact path="/auth/spotify">
         <Profile user={user} tracks={tracks} setTracks={setTracks} />
-      </Route> */}
+      </Route>
       <Route exact path="/declined">
         <Declined user={user} />
       </Route>
