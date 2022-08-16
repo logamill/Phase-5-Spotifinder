@@ -32,7 +32,7 @@ Once the users links their account a request is made to Spotify's servers that i
 
 ### User Profile  
 
-![User Profile](https://raw.githubusercontent.com/logamill/Phase-5-Spotifinder/main/client/src/assets/analytics.jpg?raw=true "Profile")
+![User Analytics](https://raw.githubusercontent.com/logamill/Phase-5-Spotifinder/main/client/src/assets/analytics.jpg?raw=true "Profile")
 
 ![User Top](https://raw.githubusercontent.com/logamill/Phase-5-Spotifinder/main/client/src/assets/top.jpg?raw=true "Top")
 
