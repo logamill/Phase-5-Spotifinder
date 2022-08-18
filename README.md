@@ -26,6 +26,7 @@ Once the users links their account a request is made to Spotify's servers that i
 
 ## Project 
 
+Here are a few screenshots of the project:
 ### Homepage 
 
 ![Home page](https://raw.githubusercontent.com/logamill/Phase-5-Spotifinder/main/client/src/assets/home.jpg?raw=true "Home")
